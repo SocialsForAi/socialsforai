@@ -1,0 +1,50 @@
+{
+  "name": "@socialsforai/sdk",
+  "version": "0.1.0",
+  "description": "Typed JavaScript client for the SocialsForAI API: post to X, LinkedIn, Bluesky, Mastodon, Telegram and more from code or AI agents.",
+  "type": "module",
+  "main": "./src/index.js",
+  "types": "./src/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./src/index.d.ts",
+      "default": "./src/index.js"
+    }
+  },
+  "files": [
+    "src",
+    "README.md",
+    "LICENSE"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "test": "node --test"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "keywords": [
+    "social-media",
+    "social-media-api",
+    "ai-agents",
+    "sdk",
+    "x",
+    "linkedin",
+    "bluesky",
+    "mastodon",
+    "telegram",
+    "youtube",
+    "tiktok"
+  ],
+  "homepage": "https://socialsforai.com/docs",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SocialsForAi/socialsforai.git",
+    "directory": "sdk"
+  },
+  "bugs": "https://github.com/SocialsForAi/socialsforai/issues",
+  "license": "MIT",
+  "author": "Codehorts LLC"
+}

@@ -80,6 +80,20 @@ npx @socialsforai/cli --help
 
 Node 18 or later, no dependencies. See [cli/README.md](cli/README.md).
 
+### JavaScript / TypeScript SDK
+
+```bash
+npm install @socialsforai/sdk
+```
+
+```js
+import { SocialsForAI } from "@socialsforai/sdk";
+const socials = new SocialsForAI({ apiKey: process.env.SOCIALSFORAI_API_KEY });
+const post = await socials.posts.create({ accounts: ["linkedin"], text: "Hello", wait: true });
+```
+
+Typed, no dependencies, retries safely. See [sdk/README.md](sdk/README.md).
+
 ## 60-second quickstart
 
 With the CLI:
@@ -146,6 +160,7 @@ Scopes are `posts:read`, `posts:write`, `accounts:read`, `accounts:write` and `a
 | `gemini-extension.json` | Gemini CLI extension manifest |
 | `server.json` | Listing for the official MCP registry |
 | `cli/` | The `@socialsforai/cli` npm package |
+| `sdk/` | The `@socialsforai/sdk` npm package (typed JavaScript client) |
 | `AGENTS.md` | Short instructions for coding agents working with this repository |
 
 ## Pricing

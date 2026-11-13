@@ -319,3 +319,28 @@ test("an unreachable server is reported as a network error", async () => {
   assert.equal(r.code, 1);
   assert.equal(JSON.parse(r.stderr).error.code, "network_error");
 });
+
+test("edit sends only the fields given, and --schedule now clears the time", async () => {
+  routes["PATCH /v1/posts/post_1"] = () => ({ json: { object: "post", id: "post_1", status: "publishing" } });
+  const r = await run(["edit", "post_1", "--text", "Fixed typo", "--schedule", "now"], { env: KEY });
+  assert.equal(r.code, 0, r.stderr);
+  assert.deepEqual(JSON.parse(seen[0].body), { text: "Fixed typo", scheduled_at: null });
+  const bare = await run(["edit", "post_1"], { env: KEY });
+  assert.equal(bare.code, 2);
+  assert.match(bare.stderr, /Say what to change/);
+});
+
+test("edit reports a post that already went out", async () => {
+  routes["PATCH /v1/posts/post_1"] = () => ({ status: 409, json: { error: { code: "post_not_editable", message: "Already published.", fix: "Delete it and post again." } } });
+  const r = await run(["edit", "post_1", "--text", "Late"], { env: KEY });
+  assert.equal(r.code, 1);
+  assert.equal(JSON.parse(r.stderr).error.code, "post_not_editable");
+});
+
+test("status needs no key", async () => {
+  routes["GET /v1/health"] = () => ({ json: { object: "status", status: "operational" } });
+  const r = await run(["status"]);
+  assert.equal(r.code, 0, r.stderr);
+  assert.equal(JSON.parse(r.stdout).status, "operational");
+  assert.equal(seen[0].headers.authorization, undefined);
+});

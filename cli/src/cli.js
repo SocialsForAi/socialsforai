@@ -29,6 +29,7 @@ Setup
   whoami                                  Show the workspace this key belongs to
   platforms                               Networks and their limits (no key needed)
   usage                                   Active accounts, posts, plan and estimated cost this month
+  status                                  Service status: API, publisher and each network (no key needed)
   upgrade <hobby|pro|growth|scale>        Get a checkout link for a human to pay
 
 Accounts
@@ -44,6 +45,8 @@ Posts
                                           Publish now or schedule. --text - reads the text from stdin
   posts [--status S] [--limit N] [--before post_id]
   get <post_id> [--wait]                  --wait holds while the post is pending approval
+  edit <post_id> [--text T] [--media URL]... [--link URL] [--schedule ISO|now] [--timezone TZ] [--dry-run] [--json '{...}']
+                                          Change a post that hasn't started publishing
   delete <post_id> [--accounts a,b]       Cancel unpublished copies, delete published ones
   metrics <post_id>
   upload <file> [--content-type T]        Upload an image or video; prints a url for --media
@@ -202,6 +205,7 @@ const commands = {
   whoami: (ctx) => ctx.request("GET", "/v1/workspace"),
   platforms: (ctx) => ctx.request("GET", "/v1/platforms", { auth: false }),
   usage: (ctx) => ctx.request("GET", "/v1/usage"),
+  status: (ctx) => ctx.request("GET", "/v1/health", { auth: false }),
 
   async upgrade(ctx, [plan]) {
     if (!PLANS.includes(plan)) throw new UsageError(`Name a plan: socials upgrade <${PLANS.join("|")}>`);
@@ -270,6 +274,22 @@ const commands = {
       post = await ctx.request("GET", path, { query: { wait: 45 } });
     } while (post.status === "pending_approval" && Date.now() < deadline);
     return post;
+  },
+
+  async edit(ctx, [id]) {
+    need(id, "Pass the post id: socials edit post_... --text \"...\"");
+    const f = ctx.flags;
+    const body = { ...(jsonFlag(f.json, "json") ?? {}) };
+    if (f.text !== undefined) body.text = f.text === "-" ? await readStdin(ctx.io) : String(f.text);
+    if (f.media) body.media = f.media.map((url) => ({ url }));
+    if (f.link) body.link = { url: f.link };
+    if (f.schedule) body.scheduled_at = f.schedule === "now" ? null : f.schedule;
+    if (f.timezone) body.timezone = f.timezone;
+    if (f["dry-run"]) body.dry_run = true;
+    if (Object.keys(body).filter((k) => k !== "dry_run").length === 0) {
+      throw new UsageError("Say what to change: --text, --media, --link, --schedule (or --schedule now), or --json '{...}'.");
+    }
+    return ctx.request("PATCH", `/v1/posts/${encodeURIComponent(id)}`, { body });
   },
 
   async delete(ctx, [id]) {
