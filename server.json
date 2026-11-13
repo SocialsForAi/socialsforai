@@ -7,8 +7,17 @@
     "url": "https://github.com/SocialsForAi/socialsforai",
     "source": "github"
   },
-  "version": "0.1.0",
+  "version": "0.1.1",
   "websiteUrl": "https://socialsforai.com/mcp",
+  "icons": [
+    {
+      "src": "https://socialsforai.com/brand/logo-512.png",
+      "mimeType": "image/png",
+      "sizes": [
+        "512x512"
+      ]
+    }
+  ],
   "remotes": [
     {
       "type": "streamable-http",
