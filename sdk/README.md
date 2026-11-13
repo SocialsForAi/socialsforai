@@ -59,6 +59,9 @@ if (decided.approval.status === "rejected") console.log("Feedback:", decided.app
 await socials.posts.update(post.id, { text: "Fixed a typo", scheduled_at: "2026-12-01T09:00:00-08:00" });
 await socials.posts.delete(post.id);
 const stats = await socials.posts.metrics(post.id);
+
+// What worked over the last 30 days: per account, top posts, best hours in your time zone.
+const { top_posts, best_times } = await socials.analytics.get({ days: 30, timezone: "America/New_York" });
 ```
 
 ## Media
@@ -110,7 +113,7 @@ const ok = await verifyWebhook(process.env.SOCIALS_WEBHOOK_SECRET, req.headers["
 
 | Area | Methods |
 | --- | --- |
-| Workspace | `workspaces.create`, `workspace.get`, `workspace.update`, `usage.get`, `upgradeLinks.create` |
+| Workspace | `workspaces.create`, `workspace.get`, `workspace.update`, `usage.get`, `analytics.get`, `upgradeLinks.create` |
 | Accounts | `accounts.list`, `accounts.get`, `accounts.connect`, `accounts.disconnect`, `connectLinks.create`, `connectLinks.get`, `connectLinks.waitFor` |
 | Posts | `posts.create`, `posts.list`, `posts.get`, `posts.update`, `posts.delete`, `posts.metrics`, `posts.waitForApproval` |
 | Media | `media.upload`, `media.createUpload`, `media.uploadLarge` |

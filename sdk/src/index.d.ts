@@ -302,6 +302,21 @@ export interface PostMetrics {
   clicks?: number;
 }
 
+export interface Analytics {
+  object: "analytics";
+  period: { from: string; to: string; timezone: string };
+  posts_published: number;
+  posts_measured: number;
+  totals: PostMetrics;
+  engagement: number;
+  engagement_per_post: number | null;
+  by_account: { account_id: string; platform: Platform; name: string | null; posts: number; measured: number; totals: PostMetrics; engagement: number; engagement_per_post: number | null }[];
+  top_posts: { post_id: string; account_id: string; platform: Platform; url: string | null; published_at: string; text: string; engagement: number; metrics: PostMetrics }[];
+  /** Day-and-hour slots (in period.timezone) whose posts drew the most engagement. */
+  best_times: { day: string; hour: number; posts: number; avg_engagement: number }[];
+  note: string;
+}
+
 export interface Health {
   object: "status";
   status: "operational" | "degraded" | "outage";
@@ -333,6 +348,7 @@ export declare class SocialsForAI {
   workspaces: { create(body?: { name?: string; email?: string }): Promise<WorkspaceCreated> };
   workspace: { get(): Promise<Workspace>; update(body: { email: string }): Promise<Workspace> };
   usage: { get(): Promise<Usage> };
+  analytics: { get(params?: { days?: number; from?: string; to?: string; account_id?: string; platform?: Platform; timezone?: string; limit?: number }): Promise<Analytics> };
   platforms: { list(): Promise<PlatformInfo[]> };
   health: { get(): Promise<Health> };
   upgradeLinks: { create(body: { plan: Plan }): Promise<UpgradeLink> };

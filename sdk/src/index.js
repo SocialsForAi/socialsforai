@@ -76,6 +76,8 @@ export class SocialsForAI {
       update: (body) => r("PATCH", "/v1/workspace", { body }),
     };
     this.usage = { get: () => r("GET", "/v1/usage") };
+    /** Totals per account, top posts and the best posting hours, from metrics already read. Free. */
+    this.analytics = { get: (params) => r("GET", `/v1/analytics${query(params)}`) };
     this.platforms = { list: async () => (await r("GET", "/v1/platforms", { auth: false })).data };
     this.health = { get: () => r("GET", "/v1/health", { auth: false, okStatuses: [503] }) };
     this.upgradeLinks = { create: (body) => r("POST", "/v1/upgrade-links", { body }) };

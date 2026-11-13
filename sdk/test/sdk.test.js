@@ -171,3 +171,9 @@ test("verifyWebhook accepts a fresh, correct signature and rejects the rest", as
   assert.equal(await verifyWebhook(secret, `t=${t - 3600},v1=${createHmac("sha256", secret).update(`${t - 3600}.${body}`).digest("hex")}`, body), false);
   assert.equal(await verifyWebhook(secret, "garbage", body), false);
 });
+
+test("analytics.get passes its filters as a query", async () => {
+  routes["GET /v1/analytics"] = (r) => ({ json: { object: "analytics", q: r.query } });
+  const a = await client().analytics.get({ days: 7, timezone: "America/New_York", platform: undefined });
+  assert.deepEqual(a.q, { days: "7", timezone: "America/New_York" });
+});
