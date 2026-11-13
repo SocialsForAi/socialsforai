@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "socials": {
+      "type": "http",
+      "url": "https://socialsforai.com/api/mcp"
+    }
+  }
+}

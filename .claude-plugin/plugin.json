@@ -1,0 +1,18 @@
+{
+  "name": "socialsforai",
+  "displayName": "SocialsForAI",
+  "version": "0.1.0",
+  "description": "Post, schedule and measure social media posts from your agent: X, LinkedIn, Bluesky, Mastodon, Telegram and more through one API. Bundles the SocialsForAI skill and the hosted MCP server.",
+  "author": {
+    "name": "SocialsForAI",
+    "url": "https://socialsforai.com"
+  },
+  "homepage": "https://socialsforai.com",
+  "repository": "https://github.com/SocialsForAi/socialsforai",
+  "license": "MIT",
+  "icon": "./assets/icon.png",
+  "documentationUrl": "https://socialsforai.com/docs",
+  "privacyPolicyUrl": "https://socialsforai.com/privacy",
+  "termsOfServiceUrl": "https://socialsforai.com/terms",
+  "keywords": ["social-media", "posting", "scheduling", "mcp", "x", "linkedin", "bluesky", "mastodon", "telegram"]
+}

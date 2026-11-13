@@ -1,0 +1,17 @@
+{
+  "name": "socialsforai",
+  "owner": {
+    "name": "SocialsForAI",
+    "url": "https://socialsforai.com"
+  },
+  "description": "SocialsForAI: social media posting for AI agents",
+  "plugins": [
+    {
+      "name": "socialsforai",
+      "source": "./",
+      "description": "Post, schedule and measure social media posts from your agent: X, LinkedIn, Bluesky, Mastodon, Telegram and more through one API. Bundles the SocialsForAI skill and the hosted MCP server.",
+      "category": "social-media",
+      "tags": ["social-media", "posting", "scheduling", "mcp"]
+    }
+  ]
+}

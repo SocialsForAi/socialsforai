@@ -1,0 +1,11 @@
+{
+  "name": "socialsforai",
+  "version": "0.1.0",
+  "description": "Post, schedule and measure social media posts from Gemini CLI through SocialsForAI. Bundles the SocialsForAI skill and the hosted MCP server.",
+  "mcpServers": {
+    "socials": {
+      "httpUrl": "https://socialsforai.com/api/mcp",
+      "description": "SocialsForAI MCP server (hosted, Streamable HTTP). Signs in with OAuth in the browser on first use; no API key to copy."
+    }
+  }
+}

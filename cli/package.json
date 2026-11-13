@@ -1,0 +1,48 @@
+{
+  "name": "@socialsforai/cli",
+  "version": "0.1.0",
+  "description": "Command-line client for the SocialsForAI API: post to social networks from a shell or an AI agent. JSON in, JSON out.",
+  "type": "module",
+  "bin": {
+    "socialsforai": "bin/socials.js",
+    "socials": "bin/socials.js"
+  },
+  "files": [
+    "bin",
+    "src",
+    "README.md",
+    "LICENSE"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "test": "node --test"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "keywords": [
+    "social-media",
+    "social-media-api",
+    "ai-agents",
+    "mcp",
+    "cli",
+    "x",
+    "linkedin",
+    "bluesky",
+    "mastodon",
+    "telegram"
+  ],
+  "homepage": "https://socialsforai.com",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SocialsForAi/socialsforai.git",
+    "directory": "cli"
+  },
+  "bugs": {
+    "url": "https://github.com/SocialsForAi/socialsforai/issues"
+  },
+  "author": "Codehorts LLC",
+  "license": "MIT"
+}
