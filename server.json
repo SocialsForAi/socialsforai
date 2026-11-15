@@ -2,12 +2,12 @@
   "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
   "name": "io.github.SocialsForAi/socialsforai",
   "title": "SocialsForAI",
-  "description": "Post and schedule to X, LinkedIn, Bluesky, Mastodon and Telegram from an AI agent.",
+  "description": "Post, schedule and measure on X, LinkedIn, Bluesky, Mastodon, Telegram, Discord, Slack and Nostr from an AI agent.",
   "repository": {
     "url": "https://github.com/SocialsForAi/socialsforai",
     "source": "github"
   },
-  "version": "0.1.1",
+  "version": "0.2.0",
   "websiteUrl": "https://socialsforai.com/mcp",
   "icons": [
     {

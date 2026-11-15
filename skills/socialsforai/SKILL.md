@@ -1,6 +1,6 @@
 ---
 name: socialsforai
-description: Publish, schedule, delete and measure social media posts through SocialsForAI (X, LinkedIn, Bluesky, Mastodon, Telegram and more) from an agent. Use when the user asks to post or schedule something on social media, connect a social account, get a post approved before it goes out, check how a post performed, or set up SocialsForAI. Works through the SocialsForAI MCP server, the `socials` CLI, or plain HTTP.
+description: Publish, schedule, delete and measure social media posts through SocialsForAI (X, LinkedIn, Bluesky, Mastodon, Telegram, Discord, Slack, Nostr and more) from an agent. Use when the user asks to post or schedule something on social media, plan a content calendar, connect a social account, get a post approved before it goes out, check how a post performed, answer replies to their posts, or set up SocialsForAI. Works through the SocialsForAI MCP server, the `socials` CLI, or plain HTTP.
 license: MIT
 ---
 
@@ -49,7 +49,8 @@ If the account you need is missing:
   # MCP:  create_connect_link, then wait_for_connection
   ```
   The owner approves on the network's own screen. You never see a password. `external_ref` is your label for whose account it is (a client or user id); filter by it later.
-- **Bluesky, Mastodon, Telegram:** if the owner gives you credentials, connect directly: `socials connect-account --platform bluesky --credentials '{"identifier":"name.bsky.social","app_password":"..."}'` (MCP `connect_account`, HTTP `POST /v1/accounts`). Bluesky takes an app password, never the main password. Mastodon takes `{instance, access_token}`; Telegram `{bot_token, chat_id}`.
+- **Bluesky, Mastodon, Telegram, Discord, Slack, Nostr:** if the owner gives you credentials, connect directly: `socials connect-account --platform bluesky --credentials '{"identifier":"name.bsky.social","app_password":"..."}'` (MCP `connect_account`, HTTP `POST /v1/accounts`). Bluesky takes an app password, never the main password. Mastodon takes `{instance, access_token}`; Telegram `{bot_token, chat_id}`; Discord `{webhook_url}` and Slack `{webhook_url}` (a channel's webhook); Nostr `{nsec, relays?}`. A Nostr private key is the whole account: have the owner paste it into a connect link rather than give it to you.
+- **To test without a real network:** connect a sandbox account with `{"platform": "sandbox", "credentials": {}}`. Nothing is posted anywhere.
 
 An account with `status: "needs_reauth"` needs a new connect link for that network.
 
@@ -79,8 +80,10 @@ Rules that matter:
 - The result has one `target` per account with `status`, `url` and `error`. `partially_published` means some accounts succeeded: report each one, and do not resend the whole post.
 - Retryable failures (`platform_rate_limited`, `platform_unavailable`) are retried for you with backoff. Poll `socials get <post_id>` instead of posting again.
 - Networks differ in length. Give a network its own text with `platform_options`, for example `--json '{"platform_options":{"x":{"text":"Shorter version for X"}}}'`.
-- Schedule with `--schedule 2026-12-01T09:00 --timezone America/Los_Angeles` (or an ISO time with an offset). A local time without a timezone is rejected.
-- Media: `--media <public URL>` (repeatable). For a local file, `socials upload ./image.png` returns a `url` to pass as `--media`.
+- Schedule with `--schedule 2026-12-01T09:00 --timezone America/Los_Angeles` (or an ISO time with an offset). A local time without a timezone is rejected. `--schedule best` picks the hour that has had the most engagement on these accounts (a weekday morning until there's history).
+- Text too long for a network: add `--auto-thread` (`auto_thread: true`) and it goes out as a thread where the network has threads, split at paragraph and sentence breaks. Check the dry run's `preview` to see each piece.
+- Repeating posts: `--repeat week:4` (`repeat: {every: "week", count: 4}`) creates four dated posts at the same local time. A content calendar: `socials post-many --file posts.json` (`POST /v1/posts/batch`, MCP `create_posts`) takes up to 50 posts; each succeeds or fails by itself.
+- Media: `--media <public URL>` (repeatable). For a local file, `socials upload ./image.png` returns a `url` to pass as `--media`. The URL must be the file itself, not a share or preview page (`media_not_a_file`). Images in a format or size a network doesn't take are converted for you.
 - More fields (threads, polls, link cards, first comments, replies, per-network options): pass them with `--json '{...}'`; they are listed in https://socialsforai.com/llms.txt.
 
 Show the user the exact text per network before publishing anything they have not seen, unless they told you to post without review.
@@ -110,6 +113,8 @@ socials get post_123 --wait      # HTTP: GET /v1/posts/post_123?wait=45   MCP: w
 - `socials metrics <post_id>`: likes, reposts, replies, views per published copy plus totals, where the network reports them. Reads on X are billed at X's cost, so do not poll metrics in a loop.
 - `socials delete <post_id>`: cancels copies not yet sent and deletes published ones where the network allows it. Add `--accounts acc_1` to remove it from some accounts only. Deleting is permanent: confirm with the user first.
 - `socials posts --status scheduled`: what is queued.
+- `socials replies <post_id>` (`list_replies`): what people replied under the post. Answer one with `socials post --accounts acc_1 --reply-to <post_id> --reply-to-comment <reply id> --text "..."`. Show the user your answer first unless they asked you to reply on your own.
+- `socials events --after <last id>` (`list_events`, `GET /v1/events`): what happened since you last looked (posts that failed, approvals, accounts needing reconnection). Keep `last_id` and pass it next time. Use this when you can't receive webhooks.
 
 ## 6. Scoped keys for other agents
 
@@ -142,7 +147,7 @@ Every error looks like this:
 2. `issues` lists each failing check with its own `fix`, `account_id` and `platform`.
 3. If you cannot resolve it, show the user the `message` and the `request_id`.
 
-Common codes: `missing_api_key` / `invalid_api_key` (get or fix the key), `account_not_found` (list accounts), `account_needs_reauth` (new connect link), `preflight_failed` (fix the issues; `text_too_long`, `too_many_media`, `duplicate_content`, `daily_cap_reached`), `requires_owner_approval` (use a connect link), `rate_limited` (wait and retry).
+Common codes: `media_unreachable` / `media_not_a_file` (use a direct link to the file, or upload it), `missing_api_key` / `invalid_api_key` (get or fix the key), `account_not_found` (list accounts), `account_needs_reauth` (new connect link), `preflight_failed` (fix the issues; `text_too_long` (or send `auto_thread`), `too_many_media`, `duplicate_content`, `daily_cap_reached`), `requires_owner_approval` (use a connect link), `rate_limited` (wait and retry).
 
 ## Do not
 

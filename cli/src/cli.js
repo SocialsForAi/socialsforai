@@ -17,6 +17,9 @@ const CONTENT_TYPES = {
   ".mp4": "video/mp4",
   ".mov": "video/quicktime",
   ".webm": "video/webm",
+  ".pdf": "application/pdf",
+  ".pptx": "application/vnd.openxmlformats-officedocument.presentationml.presentation",
+  ".docx": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
 };
 
 const HELP = `socials: command-line client for the SocialsForAI API (https://socialsforai.com)
@@ -37,18 +40,26 @@ Accounts
   connect [--platforms x,linkedin] [--ref R] [--redirect-url U] [--expires-in SEC] [--wait] [--until all|any]
                                           Create a link the account owner opens to connect accounts
   connect-account --platform P --credentials '{...}' [--ref R]
-                                          Connect Bluesky, Mastodon or Telegram with credentials
+                                          Connect Bluesky, Mastodon, Telegram, Discord, Slack or Nostr with credentials
 
 Posts
-  post --accounts a,b --text "..." [--media URL]... [--link URL] [--schedule ISO] [--timezone TZ]
+  post --accounts a,b --text "..." [--media URL]... [--link URL] [--schedule ISO|best] [--timezone TZ]
+       [--auto-thread] [--repeat week:4] [--reply-to post_id [--reply-to-comment ID]]
        [--dry-run] [--approval] [--idempotency-key K] [--no-wait] [--json '{...}']
-                                          Publish now or schedule. --text - reads the text from stdin
+                                          Publish now or schedule. --text - reads the text from stdin.
+                                          --schedule best picks the hour that has worked best; --auto-thread
+                                          splits long text into a thread; --repeat day|week|month:COUNT[:EVERY]
+  post-many --file posts.json [--dry-run] Create up to 50 posts at once ({"posts": [...]} or a JSON array)
   posts [--status S] [--limit N] [--before post_id]
   get <post_id> [--wait]                  --wait holds while the post is pending approval
   edit <post_id> [--text T] [--media URL]... [--link URL] [--schedule ISO|now] [--timezone TZ] [--dry-run] [--json '{...}']
                                           Change a post that hasn't started publishing
-  delete <post_id> [--accounts a,b]       Cancel unpublished copies, delete published ones
+  delete <post_id> [--accounts a,b] [--series]
+                                          Cancel unpublished copies, delete published ones (--series: the rest of a repeat too)
   metrics <post_id>
+  replies <post_id>                       What people replied under each published copy
+  events [--after evt_id] [--types a,b] [--limit N] [--wait-seconds SEC]
+                                          What happened since you last looked (failed posts, approvals...)
   upload <file> [--content-type T]        Upload an image or video; prints a url for --media
 
 Keys and webhooks
@@ -237,7 +248,7 @@ const commands = {
   },
 
   async "connect-account"(ctx) {
-    const platform = need(ctx.flags.platform, "Pass --platform bluesky|mastodon|telegram.");
+    const platform = need(ctx.flags.platform, "Pass --platform bluesky|mastodon|telegram|discord|slack|nostr.");
     const credentials = need(jsonFlag(ctx.flags.credentials, "credentials"), "Pass --credentials as JSON, for example '{\"identifier\":\"me.bsky.social\",\"app_password\":\"...\"}'.");
     return ctx.request("POST", "/v1/accounts", { body: { platform, credentials, ...(ctx.flags.ref ? { external_ref: ctx.flags.ref } : {}) } });
   },
@@ -252,6 +263,14 @@ const commands = {
     if (f.link) body.link = { ...(body.link ?? {}), url: f.link };
     if (f.schedule) body.scheduled_at = f.schedule;
     if (f.timezone) body.timezone = f.timezone;
+    if (f["auto-thread"]) body.auto_thread = true;
+    if (f.repeat) {
+      const [every, count, interval] = String(f.repeat).split(":");
+      if (!["day", "week", "month"].includes(every) || !Number(count)) throw new UsageError("--repeat takes day|week|month:COUNT[:EVERY], for example --repeat week:4 (four weekly posts).");
+      body.repeat = { every, count: Number(count), ...(interval ? { interval: Number(interval) } : {}) };
+    }
+    if (f["reply-to"]) body.reply_to = String(f["reply-to"]);
+    if (f["reply-to-comment"]) body.reply_to_comment = String(f["reply-to-comment"]);
     if (f["dry-run"]) body.dry_run = true;
     if (f.approval) body.approval = "required";
     if (f["no-wait"]) body.wait = false;
@@ -294,7 +313,30 @@ const commands = {
 
   async delete(ctx, [id]) {
     need(id, "Pass the post id: socials delete post_...");
-    return ctx.request("DELETE", `/v1/posts/${encodeURIComponent(id)}`, { query: { accounts: list(ctx.flags.accounts)?.join(",") } });
+    return ctx.request("DELETE", `/v1/posts/${encodeURIComponent(id)}`, { query: { accounts: list(ctx.flags.accounts)?.join(","), ...(ctx.flags.series ? { series: "true" } : {}) } });
+  },
+
+  async replies(ctx, [id]) {
+    need(id, "Pass the post id: socials replies post_...");
+    return ctx.request("GET", `/v1/posts/${encodeURIComponent(id)}/replies`);
+  },
+
+  events: (ctx) =>
+    ctx.request("GET", "/v1/events", { query: { after: ctx.flags.after, types: list(ctx.flags.types)?.join(","), limit: integer(ctx.flags.limit, "limit"), wait: integer(ctx.flags["wait-seconds"], "wait-seconds") } }),
+
+  async "post-many"(ctx) {
+    const file = need(ctx.flags.file, "Pass --file posts.json: a JSON array of posts, or {\"posts\": [...]}.");
+    if (!existsSync(file)) throw new UsageError(`No such file: ${file}`);
+    let parsed;
+    try {
+      parsed = JSON.parse(readFileSync(file, "utf8"));
+    } catch {
+      throw new UsageError(`${file} isn't valid JSON.`);
+    }
+    const body = Array.isArray(parsed) ? { posts: parsed } : parsed;
+    if (ctx.flags["dry-run"]) body.dry_run = true;
+    const headers = ctx.flags["idempotency-key"] ? { "Idempotency-Key": String(ctx.flags["idempotency-key"]) } : {};
+    return ctx.request("POST", "/v1/posts/batch", { body, headers });
   },
 
   async metrics(ctx, [id]) {

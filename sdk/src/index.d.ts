@@ -3,7 +3,7 @@
 export declare const DEFAULT_BASE_URL: string;
 export declare const VERSION: string;
 
-export type Platform = "x" | "bluesky" | "linkedin" | "linkedin_page" | "mastodon" | "telegram" | "threads" | "facebook" | "instagram" | "youtube" | "tiktok" | "sandbox";
+export type Platform = "x" | "bluesky" | "linkedin" | "linkedin_page" | "mastodon" | "telegram" | "threads" | "facebook" | "instagram" | "youtube" | "tiktok" | "discord" | "slack" | "nostr" | "reddit" | "sandbox";
 export type Scope = "posts:read" | "posts:write" | "accounts:read" | "accounts:write" | "admin";
 export type Plan = "hobby" | "pro" | "growth" | "scale";
 export type PostStatus = "pending_approval" | "scheduled" | "publishing" | "published" | "partially_published" | "failed" | "canceled" | "deleted";
@@ -20,6 +20,34 @@ export type EventType =
   | "account.connected"
   | "account.needs_reauth"
   | "account.disconnected";
+
+export interface Event {
+  id: string;
+  object: "event";
+  type: EventType;
+  created_at: string;
+  data: Record<string, unknown>;
+}
+
+export interface PostReply {
+  id: string;
+  /** The post, or the reply this one answers. */
+  parent_id: string | null;
+  author: { handle: string | null; name: string | null; is_self: boolean };
+  text: string;
+  created_at: string | null;
+  url: string | null;
+  likes?: number;
+}
+
+export interface BatchResult {
+  object: "batch";
+  dry_run: boolean;
+  total: number;
+  succeeded: number;
+  failed: number;
+  results: { index: number; ok: boolean; status: number; post?: Post; preflight?: Preflight; error?: { code: string; message: string; fix?: string } }[];
+}
 
 export interface Issue {
   code: string;
@@ -90,6 +118,10 @@ export interface PlatformOptions {
     brand_content?: boolean;
     ai_generated?: boolean;
   };
+  discord?: { text?: string; username?: string; allow_mentions?: boolean };
+  slack?: { text?: string };
+  nostr?: { text?: string };
+  reddit?: { text?: string; subreddit?: string; title?: string; flair_id?: string; nsfw?: boolean; spoiler?: boolean };
   sandbox?: { text?: string };
 }
 
@@ -100,12 +132,18 @@ export interface CreatePostInput {
   media?: MediaItem[];
   link?: PostLink | null;
   thread?: { text: string; media?: MediaItem[] }[];
+  /** Split text that is over a network's limit into a thread there instead of failing. */
+  auto_thread?: boolean;
   reply_to?: string | null;
+  /** With reply_to: the id of someone's reply under that post (from posts.replies), to answer them. One account. */
+  reply_to_comment?: string | null;
   poll?: Poll | null;
   first_comment?: string | null;
   platform_options?: PlatformOptions;
-  /** ISO-8601 with an offset, or a local time together with timezone. */
+  /** ISO-8601 with an offset, a local time together with timezone, or "best" for the hour that has worked best for these accounts. */
   scheduled_at?: string | null;
+  /** Create a dated series: count posts, every N days/weeks/months, at the same local time. */
+  repeat?: { every: "day" | "week" | "month"; interval?: number; count: number };
   timezone?: string;
   /** "required" holds the post until a person approves it from approval.url. */
   approval?: "required" | "none";
@@ -117,7 +155,7 @@ export interface CreatePostInput {
   metadata?: Record<string, unknown>;
 }
 
-export type UpdatePostInput = Partial<Pick<CreatePostInput, "text" | "media" | "link" | "thread" | "poll" | "first_comment" | "platform_options" | "scheduled_at" | "timezone" | "metadata" | "dry_run">>;
+export type UpdatePostInput = Partial<Pick<CreatePostInput, "text" | "media" | "link" | "thread" | "auto_thread" | "poll" | "first_comment" | "platform_options" | "scheduled_at" | "timezone" | "metadata" | "dry_run">>;
 
 export interface Approval {
   status: "pending" | "approved" | "rejected";
@@ -155,6 +193,11 @@ export interface Post {
   poll: Poll | null;
   first_comment: string | null;
   reply_to: string | null;
+  reply_to_comment: string | null;
+  auto_thread: boolean;
+  series_id: string | null;
+  /** Only on the response that created a repeat series. */
+  series?: { id: string; count: number; posts: { id: string; status: PostStatus; scheduled_at: string }[] };
   approval: Approval | null;
   platform_options: PlatformOptions;
   scheduled_at: string | null;
@@ -169,8 +212,10 @@ export interface Preflight {
   object: "preflight";
   ok: boolean;
   issues: Issue[];
-  /** The exact text each account would publish. */
-  preview: { account_id: string; platform: Platform; text: string }[];
+  /** The exact text each account would publish; thread holds the follow-ups when auto_thread splits it. */
+  preview: { account_id: string; platform: Platform; text: string; thread?: string[] }[];
+  /** For a repeat series: the dates each post would go out. */
+  series?: { count: number; scheduled_at: string[] };
 }
 
 export interface PostList {
@@ -221,8 +266,12 @@ export interface PlatformInfo {
   connect: "oauth" | "credentials" | "instant";
   max_chars: number;
   max_images: number;
+  /** Accepted image formats and size; anything else is converted to JPEG for you. */
+  image: { formats: string[]; max_mb: number; note: string } | null;
   supports_video: boolean;
+  video: { max_count: number; max_mb: number; with_images: boolean } | null;
   daily_post_cap: number;
+  features: { threads: boolean; polls: boolean; documents: boolean; first_comment: boolean; delete: boolean; metrics: boolean; read_replies: boolean; link: "card" | "native" | "text" | "none" };
 }
 
 export interface Workspace {
@@ -356,7 +405,7 @@ export declare class SocialsForAI {
   accounts: {
     list(params?: { platform?: Platform; external_ref?: string; status?: "active" | "needs_reauth" }): Promise<Account[]>;
     get(id: string): Promise<Account>;
-    connect(body: { platform: "bluesky" | "mastodon" | "telegram"; credentials: Record<string, string>; external_ref?: string }): Promise<Account>;
+    connect(body: { platform: "bluesky" | "mastodon" | "telegram" | "discord" | "slack" | "nostr" | "sandbox"; credentials: Record<string, string>; external_ref?: string }): Promise<Account>;
     disconnect(id: string): Promise<Account>;
   };
 
@@ -369,11 +418,16 @@ export declare class SocialsForAI {
   posts: {
     create(body: CreatePostInput & { dry_run: true }, options?: { idempotencyKey?: string }): Promise<Preflight>;
     create(body: CreatePostInput, options?: { idempotencyKey?: string }): Promise<Post>;
-    list(params?: { status?: PostStatus; limit?: number; before?: string }): Promise<PostList>;
+    list(params?: { status?: PostStatus; series_id?: string; limit?: number; before?: string }): Promise<PostList>;
+    /** Up to 50 posts in one request; each is checked and created by itself. */
+    createMany(body: { posts: CreatePostInput[]; dry_run?: boolean }, options?: { idempotencyKey?: string }): Promise<BatchResult>;
     get(id: string): Promise<Post>;
     update(id: string, body: UpdatePostInput & { dry_run: true }): Promise<Preflight>;
     update(id: string, body: UpdatePostInput): Promise<Post>;
-    delete(id: string, options?: { accounts?: string[] }): Promise<Post>;
+    /** series: true also cancels the rest of a repeat series that hasn't gone out. */
+    delete(id: string, options?: { accounts?: string[]; series?: boolean }): Promise<Post & { series_canceled?: number }>;
+    /** What people replied under each published copy (Bluesky, Mastodon, Reddit today). */
+    replies(id: string): Promise<{ object: "post_replies"; post_id: string; total: number; targets: { target_id: string; account_id: string; platform: Platform; url: string | null; replies: PostReply[]; fetched_at: string | null; error: { code: string; message: string; fix?: string } | null }[] }>;
     metrics(id: string): Promise<{ object: string; post_id: string; totals: PostMetrics; targets: { target_id: string; account_id: string; platform: Platform; url: string | null; metrics: PostMetrics | null; fetched_at: string | null; error: { code: string; message: string; fix?: string } | null }[] }>;
     waitForApproval(id: string, options?: { timeoutMs?: number }): Promise<Post>;
   };
@@ -382,6 +436,11 @@ export declare class SocialsForAI {
     upload(data: Uint8Array | ArrayBuffer | Blob | string, contentType?: string): Promise<{ url: string }>;
     createUpload(body: { content_type: string; size_bytes?: number }): Promise<{ upload_url: string; method: "PUT"; headers: Record<string, string>; url: string }>;
     uploadLarge(data: Uint8Array | ArrayBuffer | Blob, contentType: string): Promise<{ url: string }>;
+  };
+
+  events: {
+    /** What happened since `after` (an event id), oldest first. waitSeconds holds the request until something arrives. */
+    list(params?: { after?: string; types?: EventType[]; limit?: number; waitSeconds?: number }): Promise<{ object: "list"; data: Event[]; has_more: boolean; last_id: string | null }>;
   };
 
   webhooks: {

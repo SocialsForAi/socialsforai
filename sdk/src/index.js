@@ -8,7 +8,7 @@
  */
 
 export const DEFAULT_BASE_URL = "https://socialsforai.com";
-export const VERSION = "0.1.0";
+export const VERSION = "0.2.0";
 
 /** An error the API returned. `code` is stable; `fix` says what to do; `issues` lists failed checks. */
 export class SocialsError extends Error {
@@ -115,11 +115,18 @@ export class SocialsForAI {
         return r("POST", "/v1/posts", { body, headers: key ? { "Idempotency-Key": key } : {} });
       },
       list: (params) => r("GET", `/v1/posts${query(params)}`),
+      /** Up to 50 posts in one request; each is checked and created by itself. An idempotency key covers the whole batch (applied per item). */
+      createMany: (body, { idempotencyKey } = {}) => {
+        const key = idempotencyKey ?? (body?.dry_run ? undefined : randomKey());
+        return r("POST", "/v1/posts/batch", { body, headers: key ? { "Idempotency-Key": key } : {} });
+      },
       get: (id) => r("GET", `/v1/posts/${encodeURIComponent(id)}`),
       /** Edit a post that hasn't started publishing. Fields left out stay; scheduled_at: null publishes now. */
       update: (id, body) => r("PATCH", `/v1/posts/${encodeURIComponent(id)}`, { body }),
       /** Delete everywhere it went out (or only from some accounts). */
-      delete: (id, { accounts } = {}) => r("DELETE", `/v1/posts/${encodeURIComponent(id)}${query({ accounts })}`),
+      delete: (id, { accounts, series } = {}) => r("DELETE", `/v1/posts/${encodeURIComponent(id)}${query({ accounts, series })}`),
+      /** What people replied under each published copy. Answer one with create({ accounts: [one], reply_to: id, reply_to_comment: reply.id, text }). */
+      replies: (id) => r("GET", `/v1/posts/${encodeURIComponent(id)}/replies`),
       metrics: (id) => r("GET", `/v1/posts/${encodeURIComponent(id)}/metrics`),
       /** Wait while the post is pending_approval. Resolves with the post once a person decides (or the timeout passes). */
       waitForApproval: async (id, { timeoutMs = 60 * 60_000 } = {}) => {
@@ -149,6 +156,11 @@ export class SocialsForAI {
         if (!res.ok) throw new SocialsError({ status: res.status, code: "upload_failed", message: `The upload returned HTTP ${res.status}.`, fix: "Request a new upload URL and try again." });
         return { url: up.url };
       },
+    };
+
+    this.events = {
+      /** What happened since `after`, oldest first; keep last_id for the next call. */
+      list: ({ after, types, limit, waitSeconds } = {}) => r("GET", `/v1/events${query({ after, types, limit, wait: waitSeconds })}`),
     };
 
     this.webhooks = {

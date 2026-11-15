@@ -1,6 +1,6 @@
 {
   "name": "@socialsforai/sdk",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Typed JavaScript client for the SocialsForAI API: post to X, LinkedIn, Bluesky, Mastodon, Telegram and more from code or AI agents.",
   "type": "module",
   "main": "./src/index.js",

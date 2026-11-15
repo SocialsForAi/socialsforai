@@ -344,3 +344,38 @@ test("status needs no key", async () => {
   assert.equal(JSON.parse(r.stdout).status, "operational");
   assert.equal(seen[0].headers.authorization, undefined);
 });
+
+test("post sends auto_thread, repeat and replies; post-many reads a file; events and replies", async () => {
+  routes["POST /v1/posts"] = () => ({ status: 201, json: { object: "post", id: "post_1" } });
+  routes["POST /v1/posts/batch"] = () => ({ json: { object: "batch", total: 2, succeeded: 2, failed: 0, results: [] } });
+  routes["GET /v1/events"] = () => ({ json: { object: "list", data: [], last_id: null } });
+  routes["GET /v1/posts/post_1/replies"] = () => ({ json: { object: "post_replies", total: 0, targets: [] } });
+  routes["DELETE /v1/posts/post_1"] = () => ({ json: { object: "post", id: "post_1", series_canceled: 2 } });
+
+  let r = await run(["post", "--accounts", "acc_1", "--text", "hi", "--auto-thread", "--repeat", "week:4", "--schedule", "best", "--timezone", "America/New_York"], { env: KEY });
+  assert.equal(r.code, 0, r.stderr);
+  assert.deepEqual(JSON.parse(seen.at(-1).body), { accounts: ["acc_1"], text: "hi", scheduled_at: "best", timezone: "America/New_York", auto_thread: true, repeat: { every: "week", count: 4 }, wait: true });
+
+  r = await run(["post", "--accounts", "acc_1", "--text", "Thanks!", "--reply-to", "post_0", "--reply-to-comment", "c_9"], { env: KEY });
+  assert.equal(r.code, 0, r.stderr);
+  assert.deepEqual(JSON.parse(seen.at(-1).body), { accounts: ["acc_1"], text: "Thanks!", reply_to: "post_0", reply_to_comment: "c_9", wait: true });
+
+  r = await run(["post", "--accounts", "acc_1", "--text", "x", "--repeat", "fortnight"], { env: KEY });
+  assert.equal(r.code, 2);
+  assert.match(r.stderr, /--repeat takes/);
+
+  const file = join(configHome, "posts.json");
+  writeFileSync(file, JSON.stringify([{ accounts: ["acc_1"], text: "a" }, { accounts: ["acc_1"], text: "b" }]));
+  r = await run(["post-many", "--file", file, "--dry-run"], { env: KEY });
+  assert.equal(r.code, 0, r.stderr);
+  assert.deepEqual(JSON.parse(seen.at(-1).body), { posts: [{ accounts: ["acc_1"], text: "a" }, { accounts: ["acc_1"], text: "b" }], dry_run: true });
+
+  r = await run(["events", "--after", "evt_1", "--types", "post.failed", "--wait-seconds", "30"], { env: KEY });
+  assert.equal(r.code, 0, r.stderr);
+  assert.deepEqual(seen.at(-1).query, { after: "evt_1", types: "post.failed", wait: "30" });
+
+  r = await run(["replies", "post_1"], { env: KEY });
+  assert.equal(r.code, 0, r.stderr);
+  r = await run(["delete", "post_1", "--series"], { env: KEY });
+  assert.deepEqual(seen.at(-1).query, { series: "true" });
+});

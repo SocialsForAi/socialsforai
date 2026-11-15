@@ -35,12 +35,15 @@ The key is read from, in order: `--api-key`, `SOCIALSFORAI_API_KEY`, `SOCIALS_AP
 | `upgrade <hobby\|pro\|growth\|scale>` | A checkout link for a person to pay |
 | `accounts [--platform] [--ref] [--status]` | Connected accounts |
 | `connect [--platforms a,b] [--ref] [--redirect-url] [--expires-in] [--wait] [--until all\|any]` | A link the account owner opens. `--wait` prints the link on stderr and holds until they finish |
-| `connect-account --platform P --credentials '{...}' [--ref]` | Connect Bluesky, Mastodon or Telegram with credentials |
+| `connect-account --platform P --credentials '{...}' [--ref]` | Connect Bluesky, Mastodon, Telegram, Discord, Slack or Nostr with credentials |
 | `post --accounts a,b --text "..."` | Publish or schedule. See the options below |
 | `posts [--status] [--limit] [--before]` | List posts |
 | `get <post_id> [--wait]` | One post. `--wait` holds while it is pending approval |
-| `delete <post_id> [--accounts a,b]` | Cancel unpublished copies and delete published ones |
+| `delete <post_id> [--accounts a,b] [--series]` | Cancel unpublished copies and delete published ones (`--series`: the rest of a repeat series too) |
 | `metrics <post_id>` | Engagement per published copy, plus totals |
+| `replies <post_id>` | What people replied under each published copy |
+| `events [--after evt_id] [--types a,b] [--wait-seconds N]` | What happened since you last looked |
+| `post-many --file posts.json [--dry-run]` | Up to 50 posts in one request |
 | `upload <file> [--content-type]` | Upload an image or video; prints a `url` for `--media` |
 | `keys list` / `keys create` / `keys revoke <key_id>` | API keys. `create` takes `--name`, `--scopes a,b`, `--account-ids a,b`, `--require-approval`, `--daily-post-limit N` |
 | `webhooks list` / `webhooks create --url U [--events a,b]` / `webhooks delete <id>` | Webhook endpoints |

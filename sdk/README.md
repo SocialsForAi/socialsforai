@@ -42,7 +42,7 @@ console.log("Open this to connect:", link.url);
 const result = await socials.connectLinks.waitFor(link.id);
 ```
 
-Bluesky, Mastodon and Telegram can also connect with credentials the owner gives you: `socials.accounts.connect({ platform: "bluesky", credentials: { identifier, app_password } })`.
+Bluesky, Mastodon, Telegram, Discord, Slack and Nostr can also connect with credentials the owner gives you: `socials.accounts.connect({ platform: "bluesky", credentials: { identifier, app_password } })`.
 
 ## Approval before publishing
 
@@ -115,7 +115,8 @@ const ok = await verifyWebhook(process.env.SOCIALS_WEBHOOK_SECRET, req.headers["
 | --- | --- |
 | Workspace | `workspaces.create`, `workspace.get`, `workspace.update`, `usage.get`, `analytics.get`, `upgradeLinks.create` |
 | Accounts | `accounts.list`, `accounts.get`, `accounts.connect`, `accounts.disconnect`, `connectLinks.create`, `connectLinks.get`, `connectLinks.waitFor` |
-| Posts | `posts.create`, `posts.list`, `posts.get`, `posts.update`, `posts.delete`, `posts.metrics`, `posts.waitForApproval` |
+| Posts | `posts.create`, `posts.createMany`, `posts.list`, `posts.get`, `posts.update`, `posts.delete`, `posts.metrics`, `posts.replies`, `posts.waitForApproval` |
+| Events | `events.list` (what happened since an event id; for clients that can't receive webhooks) |
 | Media | `media.upload`, `media.createUpload`, `media.uploadLarge` |
 | Webhooks and keys | `webhooks.list`, `webhooks.create`, `webhooks.delete`, `keys.list`, `keys.create`, `keys.revoke`, `verifyWebhook` |
 | Service | `platforms.list`, `health.get` |

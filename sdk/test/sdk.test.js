@@ -177,3 +177,22 @@ test("analytics.get passes its filters as a query", async () => {
   const a = await client().analytics.get({ days: 7, timezone: "America/New_York", platform: undefined });
   assert.deepEqual(a.q, { days: "7", timezone: "America/New_York" });
 });
+
+test("batch create, replies, events and series delete", async () => {
+  routes["POST /v1/posts/batch"] = () => ({ json: { object: "batch", total: 2, succeeded: 2, failed: 0, results: [] } });
+  routes["GET /v1/posts/post_1/replies"] = () => ({ json: { object: "post_replies", post_id: "post_1", total: 0, targets: [] } });
+  routes["GET /v1/events"] = () => ({ json: { object: "list", data: [], has_more: false, last_id: "evt_9" } });
+  routes["DELETE /v1/posts/post_1"] = () => ({ json: { id: "post_1", object: "post", series_canceled: 3 } });
+  const c = client();
+  const batch = await c.posts.createMany({ posts: [{ accounts: ["acc_1"], text: "a" }, { accounts: ["acc_1"], text: "b" }] });
+  assert.equal(batch.succeeded, 2);
+  assert.ok(seen[0].headers["idempotency-key"], "a batch gets an idempotency key");
+  assert.equal(seen[0].json.posts.length, 2);
+  await c.posts.replies("post_1");
+  const ev = await c.events.list({ after: "evt_1", types: ["post.failed", "post.published"], waitSeconds: 30 });
+  assert.equal(ev.last_id, "evt_9");
+  assert.deepEqual(seen[2].query, { after: "evt_1", types: "post.failed,post.published", wait: "30" });
+  const del = await c.posts.delete("post_1", { series: true });
+  assert.equal(del.series_canceled, 3);
+  assert.deepEqual(seen[3].query, { series: "true" });
+});

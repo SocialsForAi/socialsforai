@@ -1,5 +1,7 @@
 /** Flags that never take a value. Everything else takes the next argument (or `--flag=value`). */
 export const BOOLEAN_FLAGS = new Set([
+  "auto-thread",
+  "series",
   "help",
   "version",
   "dry-run",
