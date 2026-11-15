@@ -1,0 +1,55 @@
+{
+  "name": "@socialsforai/ai-sdk",
+  "version": "0.1.0",
+  "description": "SocialsForAI tools for the Vercel AI SDK: let a model publish, schedule and measure posts on X, LinkedIn, Bluesky, Mastodon, Telegram, Discord and more.",
+  "type": "module",
+  "main": "./src/index.js",
+  "types": "./src/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./src/index.d.ts",
+      "default": "./src/index.js"
+    }
+  },
+  "files": [
+    "src",
+    "README.md",
+    "LICENSE"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "test": "node --test"
+  },
+  "peerDependencies": {
+    "ai": ">=5"
+  },
+  "dependencies": {
+    "@socialsforai/sdk": "^0.2.0"
+  },
+  "devDependencies": {
+    "ai": "^7.0.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "keywords": [
+    "ai-sdk",
+    "vercel-ai",
+    "ai-agents",
+    "tools",
+    "social-media",
+    "social-media-api",
+    "twitter",
+    "linkedin",
+    "bluesky"
+  ],
+  "license": "MIT",
+  "homepage": "https://socialsforai.com",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SocialsForAi/socialsforai.git",
+    "directory": "ai-sdk"
+  }
+}

@@ -94,6 +94,39 @@ const post = await socials.posts.create({ accounts: ["linkedin"], text: "Hello",
 
 Typed, no dependencies, retries safely. See [sdk/README.md](sdk/README.md).
 
+### Python SDK and agent framework tools
+
+```bash
+pip install socialsforai                     # the client
+pip install "socialsforai[langchain]"        # + LangChain / LangGraph tools
+pip install "socialsforai[crewai]"           # + CrewAI tools
+pip install "socialsforai[openai-agents]"    # + OpenAI Agents SDK tools
+```
+
+```python
+from socialsforai import SocialsForAI
+from socialsforai.integrations.langchain import socials_tools
+
+socials = SocialsForAI()                     # reads SOCIALSFORAI_API_KEY
+tools = socials_tools()                      # or .crewai / .openai_agents
+```
+
+See [python/README.md](python/README.md).
+
+### Vercel AI SDK tools
+
+```bash
+npm install @socialsforai/ai-sdk ai
+```
+
+```ts
+import { generateText } from "ai";
+import { socialsTools } from "@socialsforai/ai-sdk";
+await generateText({ model, tools: socialsTools(), prompt: "Announce our launch on LinkedIn" });
+```
+
+See [ai-sdk/README.md](ai-sdk/README.md). The agent tools in every framework come from one definition, [tools/tools.json](tools/tools.json).
+
 ## 60-second quickstart
 
 With the CLI:
@@ -161,6 +194,9 @@ Scopes are `posts:read`, `posts:write`, `accounts:read`, `accounts:write` and `a
 | `server.json` | Listing for the official MCP registry |
 | `cli/` | The `@socialsforai/cli` npm package |
 | `sdk/` | The `@socialsforai/sdk` npm package (typed JavaScript client) |
+| `python/` | The `socialsforai` PyPI package (Python client, plus LangChain, CrewAI and OpenAI Agents tools) |
+| `ai-sdk/` | The `@socialsforai/ai-sdk` npm package (Vercel AI SDK tools) |
+| `tools/` | The shared agent tool definitions; `node tools/build-tools.mjs` copies them into each package |
 | `AGENTS.md` | Short instructions for coding agents working with this repository |
 
 ## Pricing

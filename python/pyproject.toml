@@ -1,0 +1,36 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "socialsforai"
+version = "0.1.0"
+description = "Python client and agent tools for SocialsForAI: post to X, LinkedIn, Bluesky, Mastodon, Telegram, Discord and more from code or AI agents."
+readme = "README.md"
+license = "MIT"
+requires-python = ">=3.9"
+authors = [{ name = "Codehorts LLC", email = "lee@socialsforai.com" }]
+keywords = ["social-media", "social-media-api", "ai-agents", "mcp", "langchain", "crewai", "openai-agents", "twitter", "linkedin", "bluesky"]
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "Intended Audience :: Developers",
+  "Topic :: Internet",
+  "Typing :: Typed",
+]
+dependencies = []
+
+[project.optional-dependencies]
+langchain = ["langchain-core>=0.3"]
+crewai = ["crewai>=0.80"]
+openai-agents = ["openai-agents>=0.1"]
+
+[project.urls]
+Homepage = "https://socialsforai.com"
+Documentation = "https://socialsforai.com/docs"
+Source = "https://github.com/SocialsForAi/socialsforai"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/socialsforai"]
+
+[tool.hatch.build.targets.sdist]
+include = ["src", "tests", "README.md", "LICENSE", "pyproject.toml"]
