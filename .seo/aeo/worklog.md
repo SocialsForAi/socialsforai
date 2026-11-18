@@ -4,6 +4,7 @@
 |---|---|---|---|---|---|
 | 2026-11-18 | OFF-001 | 2 | producthunt.com | OFF-001 | drafted |
 | 2026-11-18 | OFF-002 | 2 | alternativeto.net | OFF-002 | drafted |
+| 2026-11-18 | OFF-003 | 2 | saashub.com | OFF-003 | drafted |
 
 ---
 
