@@ -1,154 +1,74 @@
-# Run record — 2026-11-18-0000
+# Daily SEO run — 2026-11-18 (run 2 of day, 01:30 UTC)
 
-**Mode:** unattended daily  
+**Site:** socialsforai.com — social media posting API and MCP server for AI agents  
 **Branch:** seo/daily  
-**Repo:** socialsforai (github.com/SocialsForAi/socialsforai)
+**Previous run:** 2026-11-18-0000 (Product Hunt brief OFF-001)
 
 ---
 
-## Measured
+## What this run did
 
-**Panels run:**
+This run drafted the **AlternativeTo directory listing brief** for SocialsForAI (finding id OFF-002). AlternativeTo is a comparison directory where developers search for alternatives to tools they already know; Postiz and Ayrshare (the two head competitors) are listed there today, and SocialsForAI is not. The brief includes the exact description to submit to https://alternativeto.net/software/add/ and the follow-up step of marking SocialsForAI as an alternative to Postiz, Ayrshare, and Post Bridge from each competitor's AlternativeTo page. This listing earns a backlink from a ~DR 70 domain and places the product in the discovery path of developers researching social API alternatives — the site's exact target audience. It scored higher than the G2 listing brief (the next candidate) because it requires less effort from the owner (~15 min vs ~20 min) and the acceptance is more predictable. It scored higher than seeding the truth-checks.json file because a directory backlink directly addresses the site's primary bottleneck: zero domain authority with no rankings on any target query.
 
-| Panel | Source | Result | Notes |
-|---|---|---|---|
-| Site health diff | health_diff.py vs https://socialsforai.com/sitemap.xml | 2 violations found | First run; baseline written to .seo/health/2026-11-18.json |
-| Sitemap inventory | health_diff.py | 46 pages discovered | Full inventory in link-inventory.md |
-| Keyword research | OpenSEO / DataForSEO | 3 seeds × 75 rows | Blended source; see keyword-research.json |
-| SERP check | OpenSEO / DataForSEO | 3 queries | socialsforai.com not in top 15 on any |
-| Domain overview | OpenSEO / DataForSEO | hasData:false | New/low-authority domain; no ranked keywords |
-| Search Console | OpenSEO | not_connected | GSC not linked to this project |
-| Truth check | truth_check.py | 0 contradictions, 0 rules | truth-checks.json empty (first run) |
-| Product changes | repo_changes.py | 0 commits in watched paths | Nothing changed in last 14 days |
-| Bing | — | skipped | No Bing API key configured |
-| GA4 | — | skipped | Not connected |
-| AI panel | — | skipped | Not on cadence (first run); $0 saved |
-| Backlinks | — | skipped | Not on cadence (first run) |
-| Seasonality | — | skipped | Not on cadence (first run) |
-
-**Vitals block:**
-
-| Vital | State | Notes |
-|---|---|---|
-| Speed | unchecked | No PSI key; no PageSpeed data |
-| Keyword relevance | poor | 0/3 core queries ranking; site has 46 pages but no authority |
-| CTR | unmeasured | GSC not connected |
-| Link health | unchecked | No link check run (first run baseline only) |
-
-**Violations found:**
-
-1. `[build-date-lastmod]` — 46/46 sitemap URLs share lastmod 2026-11-01 (build date). Affects crawl priority signals.
-2. `[duplicate-meta-description]` — /privacy and /terms share the homepage meta description "one api and mcp server to post to every social platform from your app ". Minor quality signal.
-
-**Foundation state:** fresh on start → built from templates + filled with detected data. First run.
+The run is the second of the day. The first run (00:00 UTC, same branch) drafted the Product Hunt brief. All site measurement panels are unchanged since that run (health diff cached, GSC not connected, no product changes).
 
 ---
 
-## Candidates
+## Verified
 
-| Rank | Action | Target | Evidence | Movement est. | Effort | Score |
-|---|---|---|---|---|---|---|
-| 1 | offpage-brief | Product Hunt listing | Zero SERP presence; DR 88; Postiz is listed; first backlink opportunity | First DR 88+ backlink; dev traffic | S | >9 |
-| 2 | repair | sitemap lastmod | 46/46 share 2026-11-01 | Crawl quality improvement | S | blocked (website repo) |
-| 3 | repair | /privacy + /terms meta description | 3 pages share homepage desc | Minor | S | blocked (website repo) |
-| 4 | offpage-brief | AlternativeTo listing | Postiz, Ayrshare listed; DR 70; free | Backlink + discovery | S | >9 |
-
-No fixed override triggered (no index regressions, no truth violations, no live harm).
-
-**Website code not in this repo:** both repair candidates (violations #1 and #2) require the website codebase. Blocked → needs-you.md.
+- **Brief wording matches truth.md:** checked. All networks in the description (X, LinkedIn, Bluesky, Mastodon, Telegram, Discord, Slack, Nostr) are verified in SKILL.md §2. YouTube, TikTok, and Instagram are intentionally omitted — each is flagged "unverified" in truth.md. Free tier claims (3 accounts, 100 posts/month, no credit card) are verified in SKILL.md §7. All feature claims (idempotency, dry run, approval gate, batch posting, media upload, scheduling, scoped sub-agent keys) are verified in SKILL.md §§3-6.
+- **No invented positioning:** checked. Description derived from battlecard and truth.md; no speculative or marketing-only claims.
+- **No contact or posting:** checked. Brief written; a human submits.
+- **No astroturfing or incentivized listing:** checked. Genuine directory submission only.
+- **Finding id, source URL, requested wording, and effort estimate all present in brief:** checked.
+- **Build check:** not applicable — no TypeScript, JavaScript, or TSX files were touched. Only `.seo/` Markdown files changed.
+- **Citation impact claim with sample size:** not applicable — no citation impact was claimed. The brief frames the value as a backlink and discovery argument; no AI panel data exists yet.
 
 ---
 
-## Chose
+## Left for the next run
 
-**Action:** offpage-brief  
-**Target:** Product Hunt (OFF-001)  
-**Run was unattended. Reason:** The two technical violations cannot be executed from this repo (website code is separate). The site has zero organic visibility on three core queries. For a new site with no authority, the highest-ROI executable action is the first directory listing that earns a DR 88 backlink and places the product in the discovery path of its exact developer audience. Product Hunt is the most impactful single directory for a new developer tool. Demand evidence: Reddit thread "social media scheduling API and MCP?" (rank 3 on "mcp server social media posting") confirms the audience exists and is looking.
-
----
-
-## Did
-
-- **Built foundation** (Step 0, first run):
-  - `.seo/config.json` — filled with domain, stack, tools, competitors, radar seeds, git mode: commit
-  - `.seo/brand.md` — positioning, voice, competitors, anti-positioning (inferred, flagged for review)
-  - `.seo/truth.md` — 30 claims from README + SKILL.md; 3 unverified network claims flagged (Instagram, YouTube, TikTok)
-  - `.seo/truth-checks.json` — empty (first run; no rules yet)
-  - `.seo/attributes.md` — attribute matrix, P1/P2/P3 tiers
-  - `.seo/keyword-research.json` — seed data from DataForSEO; gsc_baseline null
-  - `.seo/link-inventory.md` — all 46 pages from health diff
-  - `.seo/content-ledger.md` — initialized with backlog
-  - `.seo/roadmap.md` — 4 phases; Phases 0-2 blocked on external work
-  - `.seo/needs-you.md` — 5 items (NY-1 through NY-5)
-  - `.seo/aeo/battlecard.md` — positioning card
-  - `.seo/aeo/mentions.md` — empty inventory
-  - `.seo/aeo/worklog.md` — OFF-001 logged as drafted
-  - `.seo/backlink-targets.json` — 7 directories + 2 listicles + 1 community target
-  - `.seo/health/2026-11-18.json` — baseline fingerprint (46 pages)
-
-- **Executed: offpage-brief OFF-001**
-  - `.seo/briefs/2026-11-18-product-hunt-t2.md` — Product Hunt submission brief
-  - Tagline: "One API to post to every social platform from AI agents" (55 chars)
-  - Description: 254 chars, accurate against truth.md
-  - Topics, media, effort, and recheck date documented
-
-**Gates:**
-
-| Gate | Result |
-|---|---|
-| Brief wording matches truth.md | PASSED — all claims verified against truth.md entries |
-| No invented positioning | PASSED — wording derived from README and SKILL.md; unverified claims omitted |
-| No contact or posting | PASSED — brief written, human sends |
-| No astroturfing | PASSED — genuine directory listing only |
-| No mass outreach | PASSED — one brief |
-| Finding id present | PASSED — OFF-001 |
-| Source URL present | PASSED — producthunt.com/posts/new |
-| Requested wording present | PASSED — tagline and description in brief |
-| Effort for recipient stated | PASSED — ~20 min + 2-3 hours launch day |
-| Citation impact with n | UNCHECKED — no AI panel run, no citation data yet. Brief does not claim citation impact; it makes an authority-building argument instead. |
-
----
-
-## Not done
-
-1. **GSC not connected** (NY-1) — the skill cannot measure page states, CTR gaps, or striking-distance opportunities until GSC is linked to the OpenSEO project.
-2. **sitemap lastmod fix** (NY-3) — website code is in a separate repo; cannot fix from here. Next run: re-check for the violation and remind if unresolved.
-3. **duplicate meta description** (NY-3) — same blocker as above.
-4. **Truth checks not seeded** — `truth-checks.json` is empty. Next run: add at least one mechanical check (idempotency claim, free plan limits) to `truth-checks.json` so `truth_check.py` has rules to enforce.
-5. **Keyword research needs tighter seeds** — the three seeds used ("social media api for ai agents", "post to social media api", "mcp server social media") returned mostly unrelated rows (Instagram templates, timing questions). Next run: re-seed with "social posting api developers", "bluesky mcp", "schedule posts api code".
-6. **No link check run** — health_diff.py --check-links not run on first run (expensive; queued for next weekly cadence).
-7. **Competitor sitemap URLs not populated** — config.json competitors all have `sitemap_url: null`. Next run: add competitor sitemap URLs to enable the weekly competitor delta panel.
-8. **AI panel not run** — no citation data for attributes. Run after first backlinks land (probably 60+ days).
+1. **Seed truth-checks.json** — the mechanical truth-checking rules file is still empty. The truth-check script runs every run but enforces nothing without rules. The five high-risk claims in truth.md (free plan limits, idempotency, unverified networks) need mechanical grep rules. This was the third-ranked candidate today (scored 16); next run it will score higher as freshness rises.
+2. **Run the link check** — `health_diff.py --check-links` establishes the internal-link baseline and may find broken or orphan pages among the 46 live URLs. Weekly cadence; due now (first run was same day).
+3. **Add competitor sitemap URLs** — all six competitors in config.json have `sitemap_url: null`, preventing the weekly competitor delta panel from running. Next run: look up each competitor's sitemap and populate the config.
+4. **Keyword research re-seeding** — the first run's keyword seeds returned mostly unrelated rows; better seeds were noted in the previous run record.
 
 ---
 
 ## Needs you (items added this run)
 
-- **NY-1** (opened 2026-11-18): GSC not connected — see §Decisions in final message
-- **NY-2** (opened 2026-11-18): Brand and truth review — see §Decisions in final message  
-- **NY-3** (opened 2026-11-18): Two live-site violations requiring website repo access
-- **NY-4** (opened 2026-11-18): Product Hunt brief ready to send
-- **NY-5** (opened 2026-11-18): Directory starter stack (AlternativeTo, G2, Capterra, SaaSHub, Indie Hackers, Crunchbase)
+- **NY-6** (opened 2026-11-18): AlternativeTo listing brief ready to send — see §Decisions below
 
 ---
 
 ## Spend
 
-| Call | Tool | Credits / cost | Notes |
-|---|---|---|---|
-| list_projects | OpenSEO | 0 | Free |
-| whoami | OpenSEO | 0 | Free |
-| get_project_context | OpenSEO | 0 | Free |
-| get_search_console_performance | OpenSEO | 0 | Free (not connected, returned error) |
-| get_domain_overview | OpenSEO | ~200 credits | hasData:false; domain too new |
-| research_project_website | OpenSEO | 0 | Blocked (missing OPENROUTER_API_KEY) |
-| research_keywords (3 seeds) | OpenSEO/DFS | ~162 credits | 3 × ~54 |
-| get_serp_results (3 queries) | OpenSEO/DFS | ~15 credits | 3 × ~5 |
-| list_search_console_sites | OpenSEO | 0 | Free |
+All panels cached or free. 0 paid calls made this run.
 
-Estimated total: ~377 credits. No USD cost tracking available (self-hosted instance; creditsRemaining: null). No paid AI panel calls made. Well within $2.00 budget.
+---
 
-**Skipped for budget:**
-- research_project_website (blocked by missing OPENROUTER_API_KEY — not a budget skip)
-- Backlink competitor sweep (Recipe F) — deferred; no competitor domain data available
-- AI panel — not on cadence
+## Decisions waiting on you
+
+**The Search Console connection is still missing, blocking most measurement.** The OpenSEO project for socialsforai.com has no Search Console property linked. Without it, the skill cannot see which pages have impressions or clicks, which pages are close to ranking, or what queries are sending traffic. Everything that follows is a guess: which pages to refresh, whether a directory backlink moved the needle, whether a page is gaining or losing position. Options: (a) connect Search Console — go to the OpenSEO dashboard for project ba51c7a8-d290-4772-8bbb-70c6c2c505f5, add the GSC property for socialsforai.com, and reply "connected"; (b) skip for now. Recommend (a): the site has 46 pages and zero measured organic presence; every future run will be flying blind without it. It takes about five minutes to connect. (NY-1)
+
+**The brand positioning and product truth need owner confirmation.** The brand file and truth ledger were inferred from the README and skill documentation on the first run. Three specific questions need answers: (a) Is the positioning sentence accurate — "social media posting API and MCP server for AI agent developers who need to publish programmatically to multiple networks from a single call"? (b) Do YouTube and TikTok belong in the supported-network list — they appear in the SDK's package.json keywords but not in the documented API; the skill is currently omitting them from all briefs and content to avoid a false claim; (c) Is Instagram supported — there is an /instagram-api page on the live site but the API documentation does not list it; the skill is also omitting this. Reply with corrections to (a), (b), and (c) and the next run updates the brand file, truth ledger, and any briefs that need revision. (NY-2)
+
+**Two technical violations on the live site need a fix in the website repo.** The site's sitemap lists all 46 URLs with the same lastmod date (2026-11-01), which is a build date, not a content date — this tells Google every page was last updated on the same day, suppressing crawl priority signals. Separately, the /privacy and /terms pages share the homepage meta description instead of having their own. Both fixes require access to the website repository (the marketing site code is not in this repo). No action needed from you here unless you want to fix these; just noting they remain open. (NY-3)
+
+**The Product Hunt launch brief from this morning is ready to send.** The brief is at `.seo/briefs/2026-11-18-product-hunt-t2.md` and includes the tagline ("One API to post to every social platform from AI agents"), description, topics, and media guidance. Product Hunt requires a human to submit and to coordinate on launch day (Tuesday through Thursday is best; expect 2-3 hours available that day). Reply "sent" once submitted and the skill will log the send date and schedule a 30-day check on whether the page appeared and linked back. (NY-4)
+
+**The AlternativeTo listing brief from this run is ready to send.** The brief is at `.seo/briefs/2026-11-18-alternativeto-t2.md` and includes the exact text to enter into the submission form and the follow-up step of adding SocialsForAI as an alternative to Postiz, Ayrshare, and Post Bridge. The whole submission takes about 15 minutes. Reply "sent" once submitted and the skill will log the send date and schedule a 30-day recheck. (NY-6)
+
+**Other directories in the starter stack are still pending.** G2 (domain rating ~92, requires a screenshot and company email verification, ~20 min), Capterra/GetApp/Software Advice (Gartner Digital Markets, one submission form, ~20 min), SaaSHub (free, ~5 min), Indie Hackers products page (free, ~10 min), and Crunchbase basic profile (free, ~10 min) are all queued. The skill will draft briefs for each in future runs. If you want to submit any of these before the brief is drafted, reply with "do G2 next" or whichever you prefer and the next run prioritizes it. (NY-5)
+
+---
+
+## How the run ended
+
+Git mode: commit. Files changed: 7 (brief, worklog, mentions, ledger, needs-you, run record, latest.md). Run record: `.seo/runs/2026-11-18-0130.md`. Committing to branch seo/daily.
+
+---
+
+## Connections
+
+Still missing (unchanged from first run): Search Console (most valuable — unlocks page-level click/impression data), GA4 (unlocks conversion data and AI referral attribution), Bing Webmaster API (unlocks Bing and Copilot panel). No new connections made or declined this run.

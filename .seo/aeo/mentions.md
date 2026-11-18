@@ -4,7 +4,7 @@ _Started 2026-11-18. No prior inventory. First pass is a skeleton; populate as s
 
 | Source | URL | Relationship | What it says | Accurate? | Current? | Uses our category? | Cited by engines? | Correction needed | Finding id |
 |---|---|---|---|---|---|---|---|---|---|
-| _(none recorded yet)_ | | | | | | | | | |
+| AlternativeTo | https://alternativeto.net/software/add/ | none | not listed | n/a — absent | n/a | n/a — absent | unknown | Add new listing — see OFF-002 | OFF-002 |
 
 ---
 
