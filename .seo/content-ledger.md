@@ -9,6 +9,7 @@
 | Date | Title | Type | Slug / URL | Target keyword | Vol | Bucket | Original data (source · n · as-of) | Refresh due | Primary internal links | Commit / PR |
 |---|---|---|---|---|---|---|---|---|---|---|
 | 2026-11-18 | Product Hunt submission brief | offpage-brief | .seo/briefs/2026-11-18-product-hunt-t2.md | — | — | — | none | n/a | — | uncommitted |
+| 2026-11-18 | AlternativeTo listing brief | offpage-brief | .seo/briefs/2026-11-18-alternativeto-t2.md | — | — | — | none | n/a | — | uncommitted |
 
 <!-- Append one row per piece at Step 5. Type in guide / how-to / listicle / definition / comparison / data-study / resource / opinion / case-study / tool -->
 
@@ -31,7 +32,7 @@ _Scored shortlist from run 2026-11-18. Re-score each run from live GSC + health 
 | 1 | offpage-brief | Product Hunt listing | Zero SERP presence; no directory listings; DR 88; Postiz is listed | First DR 88+ backlink; developer traffic | S | NY-4 (human sends) |
 | 2 | repair | sitemap lastmod (build-date-lastmod violation) | 46/46 URLs share 2026-11-01; signals false staleness to Google | Crawl priority improvement | S | NY-3 (website repo needed) |
 | 3 | repair | /privacy + /terms duplicate meta description | 3 pages share the homepage meta description | Minor quality signal | S | NY-3 (website repo needed) |
-| 4 | offpage-brief | AlternativeTo listing | Postiz, Ayrshare listed; DR 70; free submission | Backlink + discovery traffic | S | NY-5 (human sends) |
+| 4 | offpage-brief | AlternativeTo listing | Postiz, Ayrshare listed; DR 70; free submission | Backlink + discovery traffic | S | DONE — OFF-002 drafted 2026-11-18 |
 | 5 | offpage-brief | G2 + Capterra listing | Ayrshare on G2; DR 92/91 | Backlink + B2B credibility | M | NY-5 (human sends) |
 
 ---
