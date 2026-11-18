@@ -1,0 +1,100 @@
+{
+  "generated_at": "2026-11-18",
+  "_note": "First run. No DataForSEO competitor backlink data available (domain overview returned hasData:false). Directories populated from offpage.md §5 starter stack and SERP analysis. Recipe F (competitor backlink sweep) blocked until DataForSEO returns domain data for competitors.",
+  "directories": [
+    {
+      "domain": "producthunt.com",
+      "dr": 88,
+      "url_to_submit": "https://www.producthunt.com/posts/new",
+      "competitor_uses": ["postiz.com"],
+      "priority": 1,
+      "note": "Highest-impact single directory for a new developer tool. DR 88. Launch day drives significant developer traffic. Requires launch coordination.",
+      "brief": ".seo/briefs/2026-11-18-product-hunt-t2.md"
+    },
+    {
+      "domain": "alternativeto.net",
+      "dr": 70,
+      "url_to_submit": "https://alternativeto.net/software/add/",
+      "competitor_uses": ["postiz.com", "ayrshare.com"],
+      "priority": 1,
+      "note": "List as alternative to Postiz, Ayrshare, Post Bridge. Free submission. Evergreen traffic from 'alternatives to X' queries.",
+      "brief": "needs-you.md NY-5"
+    },
+    {
+      "domain": "g2.com",
+      "dr": 92,
+      "url_to_submit": "https://www.g2.com/products/new",
+      "competitor_uses": ["ayrshare.com", "postiz.com"],
+      "priority": 2,
+      "note": "DR 92. Requires screenshot, URL, verification email. Slower process but high authority.",
+      "brief": "needs-you.md NY-5"
+    },
+    {
+      "domain": "capterra.com",
+      "dr": 91,
+      "url_to_submit": "https://www.capterra.com/vendors/sign-up",
+      "competitor_uses": ["ayrshare.com"],
+      "priority": 2,
+      "note": "Part of Gartner Digital Markets (same form flow as GetApp and Software Advice). One submission covers three directories.",
+      "brief": "needs-you.md NY-5"
+    },
+    {
+      "domain": "saashub.com",
+      "dr": 65,
+      "url_to_submit": "https://www.saashub.com/submit",
+      "competitor_uses": [],
+      "priority": 2,
+      "note": "Free. Developer-oriented discovery. Good for MCP/API tools.",
+      "brief": "needs-you.md NY-5"
+    },
+    {
+      "domain": "indiehackers.com",
+      "dr": 72,
+      "url_to_submit": "https://www.indiehackers.com/products",
+      "competitor_uses": [],
+      "priority": 2,
+      "note": "Developer founder community. Claim product page. Genuine audience for this tool.",
+      "brief": "needs-you.md NY-5"
+    },
+    {
+      "domain": "crunchbase.com",
+      "dr": 91,
+      "url_to_submit": "https://www.crunchbase.com/organization/create",
+      "competitor_uses": [],
+      "priority": 3,
+      "note": "Free basic profile passes DR and company signal to Google.",
+      "brief": "needs-you.md NY-5"
+    }
+  ],
+  "listicles": [
+    {
+      "domain": "help.nuelink.com",
+      "dr": null,
+      "url": "https://help.nuelink.com",
+      "topic": "Best APIs for Social Media Management in 2026",
+      "competitor_listed": null,
+      "note": "Ranked #12 on 'social media api for ai agents' SERP 2026-11-18. Title mentions 'API and MCP, built for automation and AI agents'. High relevance — SocialsForAI may already qualify for inclusion.",
+      "priority": 1
+    },
+    {
+      "domain": "aidelly.ai",
+      "dr": null,
+      "url": null,
+      "topic": "Best Agentic Social Media Tools in 2026 (Feb 25 2026)",
+      "competitor_listed": null,
+      "note": "Ranked #7 on 'social media api for ai agents'. Published Feb 2026 — SocialsForAI did not exist yet or was too new. Contact to request inclusion.",
+      "priority": 2
+    }
+  ],
+  "community_targets": [
+    {
+      "platform": "reddit.com",
+      "subreddit": "r/ClaudeAI",
+      "type": "community",
+      "note": "Thread 'social media scheduling API and MCP?' (Jun 10 2026) ranks #3 on 'mcp server social media posting'. Thread is 5 months old — genuine community response brief written (see OFF-001). Owner should decide whether to respond.",
+      "thread_url": "https://www.reddit.com/r/",
+      "priority": 2
+    }
+  ],
+  "guest_posts": []
+}
