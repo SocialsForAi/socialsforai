@@ -1,0 +1,62 @@
+{
+  "baseline": {
+    "domain_rank": null,
+    "rank_scale": null,
+    "source": "none",
+    "_note": "DataForSEO returned hasData:false for socialsforai.com on 2026-11-18. Domain is new/low-authority. No ranked keywords found.",
+    "as_of": "2026-11-18"
+  },
+  "difficulty": {
+    "playable_bucket": "easy",
+    "kd_source": "estimated",
+    "derived_at": "2026-11-18",
+    "_note": "Cold-start default. Re-derive once GSC shows page-1 positions or DataForSEO returns domain data.",
+    "evidence": []
+  },
+  "gsc_baseline": {
+    "clicks_90d": null,
+    "impressions_90d": null,
+    "avg_position": null,
+    "as_of": "2026-11-18",
+    "_note": "GSC not connected to OpenSEO project. Cold start — GSC signals will be empty until connected."
+  },
+  "serp_research": {
+    "run_date": "2026-11-18",
+    "queries_checked": [
+      {
+        "query": "social media api for ai agents",
+        "socialsforai_rank": null,
+        "top_domains": ["facebook.com", "jentic.com", "utin.no", "contentstudio.io", "socialfetch.dev"],
+        "note": "480 sv/mo KD 33. SocialsForAI not in top 15. AI Overview present. Opportunity."
+      },
+      {
+        "query": "mcp server social media posting",
+        "socialsforai_rank": null,
+        "top_domains": ["adkit.so", "socialchamp.com", "reddit.com", "postly.ai", "dunsocial.com"],
+        "note": "Low volume but high intent. Reddit thread rank 3: 'social media scheduling API and MCP?' Jun 10 2026 — demand evidence for the product."
+      },
+      {
+        "query": "post to social media from ai agent",
+        "socialsforai_rank": null,
+        "top_domains": ["distribution.ai", "pesto.tech", "socialinsider.io", "visionvix.com", "blog2social.com"],
+        "note": "High-intent query. SocialsForAI not in top 14. Competitor content dominates."
+      }
+    ]
+  },
+  "keyword_research": {
+    "run_date": "2026-11-18",
+    "seeds_researched": ["social media api for ai agents", "post to social media api", "mcp server social media"],
+    "notable_rows": [
+      {"keyword": "social media for ai agents", "sv": 480, "kd": 33, "intent": "commercial", "priority": "P1"},
+      {"keyword": "ai powered social media management tool", "sv": 1000, "kd": 38, "intent": "commercial", "priority": "P2"},
+      {"keyword": "post to all social media at once free", "sv": 140, "kd": 11, "intent": "transactional", "priority": "P2"},
+      {"keyword": "post to multiple social media platforms at once", "sv": 10, "kd": 23, "intent": "navigational", "priority": "P3"},
+      {"keyword": "social media character limits", "sv": 20, "kd": 1, "intent": "informational", "priority": "P3"},
+      {"keyword": "linkedin mcp server official", "sv": 20, "kd": null, "intent": "navigational", "priority": "P2"},
+      {"keyword": "marketing cloud mcp server", "sv": 10, "kd": null, "intent": "commercial", "priority": "P3"}
+    ],
+    "note": "Seeds were too broad; most returned unrelated rows (Instagram templates, timing questions). Re-research with tighter seeds like 'social posting api developers', 'bluesky mcp server', 'schedule posts api' in next keyword pass."
+  },
+  "clusters": {},
+  "candidates": []
+}
