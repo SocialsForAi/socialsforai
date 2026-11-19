@@ -11,6 +11,7 @@
 | 2026-11-18 | Product Hunt submission brief | offpage-brief | .seo/briefs/2026-11-18-product-hunt-t2.md | — | — | — | none | n/a | — | uncommitted |
 | 2026-11-18 | AlternativeTo listing brief | offpage-brief | .seo/briefs/2026-11-18-alternativeto-t2.md | — | — | — | none | n/a | — | uncommitted |
 | 2026-11-18 | SaaSHub listing brief | offpage-brief | .seo/briefs/2026-11-18-saashub-t2.md | — | — | — | none | n/a | — | uncommitted |
+| 2026-11-19 | Network status verify-product | verify-product | .seo/truth.md + truth-checks.json | — | — | — | none | n/a | — | uncommitted |
 
 <!-- Append one row per piece at Step 5. Type in guide / how-to / listicle / definition / comparison / data-study / resource / opinion / case-study / tool -->
 

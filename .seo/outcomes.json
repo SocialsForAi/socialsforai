@@ -1,0 +1,47 @@
+{
+  "generated": "2026-11-19",
+  "ledger": ".seo/content-ledger.md",
+  "gsc_dir": ".seo/gsc",
+  "pulls": 0,
+  "notes": [
+    "no dated pulls loaded \u2014 every row is too-new"
+  ],
+  "rows": [
+    {
+      "date": "2026-11-18",
+      "action": "offpage-brief",
+      "type": null,
+      "target": null,
+      "verdict": "n/a",
+      "before": null,
+      "after": null,
+      "control_change": null,
+      "excess": null,
+      "note": "no target URL"
+    },
+    {
+      "date": "2026-11-18",
+      "action": "offpage-brief",
+      "type": null,
+      "target": null,
+      "verdict": "n/a",
+      "before": null,
+      "after": null,
+      "control_change": null,
+      "excess": null,
+      "note": "no target URL"
+    },
+    {
+      "date": "2026-11-18",
+      "action": "offpage-brief",
+      "type": null,
+      "target": null,
+      "verdict": "n/a",
+      "before": null,
+      "after": null,
+      "control_change": null,
+      "excess": null,
+      "note": "no target URL"
+    }
+  ]
+}
