@@ -1,1 +1,38 @@
-[]
+[
+  {
+    "claim": "Free plan: 3 active accounts",
+    "paths": ["skills/socialsforai/SKILL.md", "README.md"],
+    "must_match": ["3"],
+    "must_not_match": []
+  },
+  {
+    "claim": "Free plan: 100 posts per month",
+    "paths": ["skills/socialsforai/SKILL.md", "README.md"],
+    "must_match": ["100"],
+    "must_not_match": []
+  },
+  {
+    "claim": "Idempotency: same key never posts twice",
+    "paths": ["skills/socialsforai/SKILL.md", "README.md"],
+    "must_match": ["[Ii]dempoten"],
+    "must_not_match": []
+  },
+  {
+    "claim": "Instagram is NOT live (in review only)",
+    "paths": ["skills/socialsforai/SKILL.md", "README.md"],
+    "must_match": [],
+    "must_not_match": ["[Ii]nstagram.*live", "[Ii]nstagram.*supported", "supported.*[Ii]nstagram"]
+  },
+  {
+    "claim": "YouTube is NOT live (in review only)",
+    "paths": ["skills/socialsforai/SKILL.md", "README.md"],
+    "must_match": [],
+    "must_not_match": ["[Yy]ouTube.*live", "[Yy]ou[Tt]ube.*supported", "supported.*[Yy]ou[Tt]ube"]
+  },
+  {
+    "claim": "TikTok is NOT live (in review only)",
+    "paths": ["skills/socialsforai/SKILL.md", "README.md"],
+    "must_match": [],
+    "must_not_match": ["[Tt]ik[Tt]ok.*live", "[Tt]ik[Tt]ok.*supported", "supported.*[Tt]ik[Tt]ok"]
+  }
+]
