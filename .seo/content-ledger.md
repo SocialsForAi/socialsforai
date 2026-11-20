@@ -12,6 +12,7 @@
 | 2026-11-18 | AlternativeTo listing brief | offpage-brief | .seo/briefs/2026-11-18-alternativeto-t2.md | — | — | — | none | n/a | — | uncommitted |
 | 2026-11-18 | SaaSHub listing brief | offpage-brief | .seo/briefs/2026-11-18-saashub-t2.md | — | — | — | none | n/a | — | uncommitted |
 | 2026-11-19 | Network status verify-product | verify-product | .seo/truth.md + truth-checks.json | — | — | — | none | n/a | — | uncommitted |
+| 2026-11-20 | Competitor config repair: 7 sitemap URLs + social-api.ai added | repair | .seo/config.json + .seo/competitors/* | — | — | — | none | n/a | — | uncommitted |
 
 <!-- Append one row per piece at Step 5. Type in guide / how-to / listicle / definition / comparison / data-study / resource / opinion / case-study / tool -->
 
@@ -22,20 +23,21 @@
 | Date | Action | Slug / URL | Pre-state | 21-day read | 90-day read | State |
 |---|---|---|---|---|---|---|
 | _(no measurable performance yet — first run)_ | | | | | | |
+| 2026-11-20 | repair | .seo/config.json (competitors) | Pre: 6 competitors, all sitemap_url: null; competitor delta panel disabled | n/a — config change, no GSC URL target | n/a | n/a |
 
 ---
 
 ## Candidate backlog
 
-_Scored shortlist from run 2026-11-18. Re-score each run from live GSC + health diff data._
+_Scored shortlist from run 2026-11-20. Re-score each run from live GSC + health diff data._
 
-| Rank | Action | Target | Evidence | Movement est. | Effort | Blocked on |
+| Rank | Action | Target | Evidence | Score | Effort | Blocked on |
 |---|---|---|---|---|---|---|
-| 1 | offpage-brief | Product Hunt listing | Zero SERP presence; no directory listings; DR 88; Postiz is listed | First DR 88+ backlink; developer traffic | S | NY-4 (human sends) |
-| 2 | repair | sitemap lastmod (build-date-lastmod violation) | 46/46 URLs share 2026-11-01; signals false staleness to Google | Crawl priority improvement | S | NY-3 (website repo needed) |
-| 3 | repair | /privacy + /terms duplicate meta description | 3 pages share the homepage meta description | Minor quality signal | S | NY-3 (website repo needed) |
-| 4 | offpage-brief | AlternativeTo listing | Postiz, Ayrshare listed; DR 70; free submission | Backlink + discovery traffic | S | DONE — OFF-002 drafted 2026-11-18 |
-| 5 | offpage-brief | G2 + Capterra listing | Ayrshare on G2; DR 92/91 | Backlink + B2B credibility | M | NY-5 (human sends) |
+| 1 | offpage-brief | Roundup outreach: 6 "best MCP servers for social media" roundup pages (Blotato, Upload-Post, postpeer.dev, dev.to, eden.so, postplanify.com) | Radar 2026-11-20: SocialsForAI absent from all 6 page-1 roundups for "best social media MCP servers" | 23 | S | — |
+| 2 | offpage-brief | Indie Hackers product page | DR ~72, founder community, free submission, 10 min; carried 3 runs | 20 | S | — |
+| 3 | verify-product | truth.md: add company address, contact email, MCP Registry ID | Homepage FAQ added 2026-11-20; terms effective 2026-11-19 | 17 | S | — |
+| 4 | repair | sitemap lastmod (build-date-lastmod violation) | 46/46 URLs share 2026-11-01 | 15 | S | NY-3 (website repo needed) |
+| 5 | offpage-brief | G2 + Capterra listing | Ayrshare on G2; DR 92/91 | 15 | M | NY-5 (human sends) |
 
 ---
 
