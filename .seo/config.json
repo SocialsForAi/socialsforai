@@ -67,42 +67,49 @@
       "domain": "postiz.com",
       "tier": "head",
       "why": "Direct /vs/postiz page; named in SERP as first alternative; open-source scheduling tool",
-      "sitemap_url": null
+      "sitemap_url": "https://postiz.com/sitemap.xml"
     },
     {
       "name": "Ayrshare",
       "domain": "ayrshare.com",
       "tier": "head",
       "why": "Direct /vs/ayrshare page; established social API competitor",
-      "sitemap_url": null
+      "sitemap_url": "https://www.ayrshare.com/sitemap.xml"
     },
     {
       "name": "Post Bridge",
       "domain": "postbridge.io",
       "tier": "mid",
       "why": "Direct /vs/post-bridge page",
-      "sitemap_url": null
+      "sitemap_url": "https://postbridge.io/sitemap.xml"
     },
     {
       "name": "Blotato",
       "domain": "blotato.com",
       "tier": "mid",
       "why": "Direct /vs/blotato page",
-      "sitemap_url": null
+      "sitemap_url": "https://www.blotato.com/sitemap-index.xml"
     },
     {
       "name": "Upload Post",
       "domain": "uploadpost.com",
       "tier": "mid",
       "why": "Direct /vs/upload-post page",
-      "sitemap_url": null
+      "sitemap_url": "https://www.upload-post.com/sitemap.xml"
     },
     {
       "name": "Zernio",
       "domain": "zernio.com",
       "tier": "niche",
       "why": "Direct /vs/zernio page",
-      "sitemap_url": null
+      "sitemap_url": "https://zernio.com/sitemap.xml"
+    },
+    {
+      "name": "Social API AI",
+      "domain": "social-api.ai",
+      "tier": "head",
+      "why": "Unified Social Media API for AI Agents and Developers — 75+ tools, OAuth 2.1; found absent from SERP for 'social media API for AI agents'; added from demand radar 2026-11-19",
+      "sitemap_url": "https://social-api.ai/sitemap.xml"
     }
   ],
   "content_surfaces": [],
