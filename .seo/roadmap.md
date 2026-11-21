@@ -80,6 +80,41 @@ Potential patterns (from existing site structure):
 
 ---
 
+## Phase 5 — Directory submissions (starter stack)
+
+**Why:** Baseline presence and links from high-DR directories. Free submissions; cap at 2-3 hours total.
+
+**Scope:**
+- [ ] Product Hunt — brief drafted 2026-11-18 (OFF-001, NY-4)
+- [ ] AlternativeTo — brief drafted 2026-11-18 (OFF-002, NY-6); list as alternative to Postiz, Ayrshare, Post Bridge
+- [ ] SaaSHub — brief drafted 2026-11-18 (OFF-003, NY-7)
+- [ ] G2 — requires screenshot + verification, ~20 min (NY-5)
+- [ ] Capterra / GetApp / Software Advice — one form, ~20 min (NY-5)
+- [ ] Indie Hackers products page — free, 10 min (NY-5)
+- [ ] Crunchbase basic profile — free, 10 min (NY-5)
+
+**Files modified:** none — external submissions. Track status in `.seo/needs-you.md`.
+
+---
+
+## Phase 6 — Roundup outreach (top listicle targets)
+
+**Why:** 10+ page-1 roundup articles for "best social media MCP servers" and "social media API for AI agents" do not list SocialsForAI. Getting added to independent roundups is faster than displacing them.
+
+**Targets (confirmed independent, page 1 as of 2026-11-21):**
+- [ ] dev.to/jclvsh — "Social media posting APIs for AI agents" — brief ready (OFF-004, NY-10); ~15 min
+- [ ] shapelessai.com/best-social-media-mcp-servers — 27-tool census — brief ready (OFF-005, NY-10); ~10 min
+- [ ] chatforest.com/guides/best-social-media-mcp-servers/ — 35+ tools — verify independence before sending
+- [ ] kevinmeneses.com/en/articles/best-social-media-mcp-servers-2026 — independent blog — verify before sending
+- [ ] dev.to/jesse_eisenbart — "7 Best Social Media APIs for Developers & AI Agents in 2026" — verify before sending
+- [ ] publora.com/blog/best-social-media-api-for-ai-agents-2026 — verify independence before sending
+
+**Verification:** track reply status in `.seo/needs-you.md`. Schedule 60-day rechecks.
+
+**Files modified:** none — external work.
+
+---
+
 ## Keyword research appendix
 
 _From run 2026-11-18. Seed research using DataForSEO via OpenSEO._
