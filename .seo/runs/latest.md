@@ -1,44 +1,55 @@
-# SEO run — 2026-11-20
+# SEO run — 2026-11-21
 
 ## What this run did
 
-The competitor intelligence panel has been broken since the first SEO run three days ago: all six competitor entries in the tool's config had no sitemap URL, so the weekly comparison (which competitor pages are growing? which new pages appeared on rivals' sites?) could never run. This run fixed that by finding the sitemap for each of the six existing competitors — Postiz, Ayrshare, Post Bridge, Blotato, Upload Post, and Zernio — and adding a seventh, Social API AI (social-api.ai), a direct "social media API for AI agents" product spotted on the demand radar yesterday but not yet in the tracking list. With the URLs in place, the tool immediately took a 30-page baseline snapshot for each. Next week's run will diff against those baselines and report which competitor pages appeared, changed, or grew.
+The search results for "best social media MCP servers" and "social media API for AI agents" show 10+ page-1 roundup articles — none of them include SocialsForAI. Today's run identified the two best independent targets and wrote ready-to-send outreach briefs for both.
 
-This was the explore-slot pick for today's run (run five of five, where the tool intentionally takes its second-best action to avoid falling into a fixed daily pattern). The highest-scoring candidate today was an outreach brief to get SocialsForAI added to the six "best social media MCP servers" roundup pages that rank on page one of Google but don't mention the product at all — that brief scored 23 and is the top priority for the next run.
+**OFF-004 — dev.to community post** (https://dev.to/jclvsh/social-media-posting-apis-for-ai-agents-buffer-ayrshare-blotato-postiz-zernio-and-dropspace-4an8): An independent developer (who builds dropspace, one of the reviewed tools — disclosed) compared six social media posting APIs for AI agents. The article's framing is a direct match: "I wanted an agent to publish to several platforms without wiring up an OAuth flow, a media upload API, and a rate limiter for each one." SocialsForAI is built exactly for that. The author explicitly invites corrections. The brief asks them to add SocialsForAI as a seventh option; the exact text to paste is included. Dev.to has domain authority around 90 and this article ranks page 1 for the phrase your buyers search.
+
+**OFF-005 — shapelessai.com 27-tool census** (https://shapelessai.com/best-social-media-mcp-servers): An independent comparison site published a list of 27 MCP servers for social media, sources every fact from vendor documentation, and explicitly states it used listicles only to find tool names, not to source claims. SocialsForAI is a genuine gap: none of the 27 tools are described as offering idempotency, approval workflow, and no-credential-handling in combination for agentic workflows. The brief includes the full table row in their format, ready to paste.
+
+The brief file at `.seo/briefs/2026-11-21-roundup-outreach-t2.md` also lists five more roundup pages to verify and brief next run (chatforest.com, kevinmeneses.com, postpeer.dev, dev.to/jesse_eisenbart, publora.com).
+
+This action was the highest-scoring candidate for two consecutive runs (score 23). It was deferred yesterday by the 1-in-5 explore slot rule (yesterday's run fixed the competitor tracking config instead). Today it took the top position.
 
 ## Verified
 
-- config.json is valid JSON: passed.
-- All 7 competitors now have a sitemap URL (not null): passed.
-- All 7 baseline fingerprints written (30 pages each): passed.
-- No files over 20 MB committed: passed.
-- Competitor diff (competitor_diff.py): not applicable — this is the first baseline, nothing to compare against yet. First diff due on or after 2026-11-27.
-- Build/type check: not applicable — only internal SEO state files changed, no code.
+- Brief claims against truth.md: **passed** — all 8 live networks (X, LinkedIn, Bluesky, Mastodon, Telegram, Discord, Slack, Nostr) confirmed in truth.md; Instagram/Threads/Facebook/TikTok/YouTube not claimed live; free tier (3 accounts, 100 posts/month), MCP URL, idempotency, approval workflow, error.fix field, sub-agent keys all sourced from SKILL.md via truth.md
+- Target independence verified by page fetch: **passed** — dev.to/jclvsh (independent, invites corrections); shapelessai.com (independent, 27-tool census sourced from vendor docs)
+- Competitor-authored roundups identified and excluded: **passed** — blotato.com, upload-post.com, breakreach.com, eden.so confirmed as product blogs; scrapecreators.com excluded (wrong category: data scraping, not posting APIs)
+- No auto-submit, no contact made: **passed** — briefs only, human sends
+- Health diff (46 pages): **passed** — 1 change (/status live data), 2 violations unchanged, 0 new violations
+- Truth check (6 rules): **passed** — 0 contradictions, 0 missing
+- Build/type check: **not applicable** — only .seo/ Markdown files changed
+- GSC panel: **not checked** — Search Console not connected (NY-1)
+- Census: **not checked** — requires GSC
+- SERP features: **not checked** — within 168h cadence (due 2026-11-27)
+- Link opportunities: **not checked** — within 168h cadence (due 2026-11-27)
+- Backlinks: **not checked** — within 7d cadence (paid call, budget preserved)
 
 ## Left for the next run
 
-1. **Write an outreach brief for the six "best social media MCP servers" roundup pages on Google page one.** Blotato, Upload-Post, postpeer.dev, a DEV Community comparison post, eden.so, and postplanify.com all published "best MCP servers for social media" lists in 2026 and none include SocialsForAI. A pitch to the authors of those six pages is the highest-value action on the site right now (scored 23). The brief gets written next run; you send it.
-
-2. **Indie Hackers product page brief** — a free directory listing on a founder and developer community with a domain rating around 72. Ten minutes to write the brief; you submit it. This has been the second-ranked action for three runs in a row.
-
-3. **Update the product truth file with new facts added to the homepage today.** The homepage FAQ now names the company address (Codehorts LLC, 1421 B St, Eureka, CA 95501, USA), a contact email (lee@socialsforai.com), and the MCP Registry identifier (io.github.SocialsForAi/socialsforai). The terms page also went live as of November 19, 2026 (it previously said "Draft"). These facts are not yet in the tool's internal claim ledger; they will be added in the next available run.
+1. **Indie Hackers product page brief** — a free 10-minute product submission to a founder community with DR ~72. Has been the second-ranked candidate for 4 consecutive runs; unblocked; next run should take it.
+2. **Verify-product: update truth.md with company address, contact email, and MCP Registry ID** — these facts appeared on the live homepage in a FAQ added 2026-11-20 and are not yet in the truth ledger or truth-checks.json.
+3. **Remaining roundup outreach** — 5 more page-1 roundup pages (chatforest.com, kevinmeneses.com, postpeer.dev, dev.to/jesse_eisenbart, publora.com) need independence verification before briefing. Brief wording is already written in OFF-004 and OFF-005.
+4. **Sitemap lastmod and duplicate meta description** — 2 technical violations on the live site that require the website repo to fix (see NY-3 below).
 
 ## Decisions waiting on you
 
-**Search Console is not connected, which blocks most measurement.** Without it the tool cannot see which pages are ranking and how close they are, cannot measure click-through rates, and cannot detect when a page falls out of the index. To connect it: go to the OpenSEO dashboard for project ba51c7a8-d290-4772-8bbb-70c6c2c505f5 and add the Search Console property for socialsforai.com. Options: (a) connect now — takes about two minutes; (b) skip for now. Recommend (a): connecting it is the single change that unlocks the most measurement. Reply with "connected" and the next run will verify and use it. (NY-1)
+**The two new outreach briefs are ready to send (NY-10).** Two independent roundup articles that rank page 1 for "best social media MCP servers" and "social media API for AI agents" do not list SocialsForAI. The briefs are at `.seo/briefs/2026-11-21-roundup-outreach-t2.md`. (a) OFF-004: Leave a comment on the dev.to post at https://dev.to/jclvsh/social-media-posting-apis-for-ai-agents-buffer-ayrshare-blotato-postiz-zernio-and-dropspace-4an8 or DM the author @jclvsh asking them to add SocialsForAI — the brief has the exact description to paste, about 15 minutes. (b) OFF-005: Contact shapelessai.com via their contact page or social links to ask them to add a row for SocialsForAI to their 27-tool census at https://shapelessai.com/best-social-media-mcp-servers — the brief has the full table row ready to paste, about 10 minutes. Reply "sent OFF-004", "sent OFF-005", or both, and the next run logs the send date and schedules a 60-day recheck. (NY-10)
 
-**The brand positioning sentence needs your confirmation.** The tool drafted it from the README as: "social media posting API and MCP server for AI agent developers who need to publish programmatically." Two sub-questions remain open: (a) Is that sentence accurate, or would you describe the product differently? (b) Does the company have any aggregate statistics or usage data — error rates, post volume, platform distribution — that could become public content? Reply with any corrections to (a) and a yes or no to (b). (NY-2 / NY-9)
+**Search Console is not connected (NY-1).** Without it, this skill cannot see which pages are close to ranking, cannot measure click-through rate, cannot run URL inspection, and the weekly link-opportunity and SERP-feature panels run blind. The fix: go to the OpenSEO dashboard for project ba51c7a8-d290-4772-8bbb-70c6c2c505f5 and add the Google Search Console property for socialsforai.com. Options: (a) connect now; (b) skip for now. Recommend (a). Reply with a letter. (NY-1)
 
-**Two technical fixes require the website source code.** The website code lives in a separate repository that the tool cannot access. Fix 1: all 46 sitemap URLs share the lastmod date 2026-11-01, which is the build date, not a content date — Google treats this as a signal that nothing on the site has changed, which can slow crawling of real updates. Fix 2: the /privacy and /terms pages both show the same meta description as the homepage. Both fixes are in the site's template or sitemap generator. Reply "fixed" once the website repo is updated and the next run will re-check. (NY-3)
+**Brand positioning and product details need a quick confirmation (NY-2 / NY-9).** Two questions remain from the first run: (a) Is the positioning sentence accurate — "social media posting API and MCP server for AI agent developers who need to publish programmatically"? (d) Are there any proprietary data assets (aggregate usage stats, error rate data, posts-per-day numbers) that could become public content — a data study or benchmarks post? Reply to both. (NY-9)
 
-**Four directory briefs are ready for you to submit.** (a) Product Hunt launch brief at .seo/briefs/2026-11-18-product-hunt-t2.md — requires a human to submit and monitor launch day, best on Tuesday through Thursday, about 2-3 hours available. (b) AlternativeTo listing brief at .seo/briefs/2026-11-18-alternativeto-t2.md — about 15 minutes to submit and mark SocialsForAI as an alternative to Postiz, Ayrshare, and Post Bridge. (c) SaaSHub listing brief at .seo/briefs/2026-11-18-saashub-t2.md — about 5 minutes to submit. (d) G2 and Capterra/GetApp are the next directory tier — not yet briefed, needs a screenshot and about 20 minutes; the full target list is in .seo/backlink-targets.json. Reply "sent" listing which you submitted and the next run will log the dates and schedule 30-day rechecks. (NY-4, NY-5, NY-6, NY-7)
+**Two live-site technical violations require the website repo (NY-3).** The site's sitemap lists all 46 pages with the same lastmod date (2026-11-01), which is a build date rather than a content date — search engines notice when every page on a site "changed" on the same day and discount the signal. Separately, the privacy and terms pages share the homepage meta description word for word. Both fixes are one-liners in the site generator but require the website codebase, which is in a separate repository. Options: (a) fix both in the website repo; (b) skip for now. Recommend (a). Reply "done" once fixed. (NY-3)
 
-**The /instagram-api page meta description could be more specific.** The page body correctly says Instagram posting is not yet live. The meta description does not say this, which could mislead someone who reads only the snippet in search results. The proposed replacement: "Instagram posting is in review on SocialsForAI. This guide covers how Meta's own Content Publishing API works: account types, App Review, container flow, and media specs." Low urgency — the page body is correct. Requires website repo access. Reply "done" once updated. (NY-8)
+**Four directory briefs are drafted and waiting to be submitted (NY-4, NY-5, NY-6, NY-7).** Product Hunt (NY-4), AlternativeTo (NY-6), and SaaSHub (NY-7) each have a ready-to-send brief. The full directory list including G2, Capterra, and Indie Hackers is in NY-5. These are free submissions that take 5-20 minutes each and add backlinks from high-authority directories. Reply "sent" listing which you submitted and the next run logs them. (NY-4, NY-5, NY-6, NY-7)
+
+**The /instagram-api meta description is a small improvement ready when you have website repo access (NY-8).** The page body correctly states Instagram posting is in review, but the meta description reads as a general Instagram API guide with no caveat. Suggested update is in the brief. No urgency — the page body is correct. (NY-8)
+
+Nothing is waiting on you beyond the above.
 
 ## How the run ended
 
-Git mode: commit. 11 files changed, all under `.seo/` (config, 7 competitor baselines, site health fingerprint, demand radar, evidence file). Run record: `.seo/runs/2026-11-20-0912.md`.
-
-## Connections
-
-Still missing (unchanged): Search Console (most valuable — unlocks page-level click/impression data, see NY-1 above), GA4 (unlocks AI referral attribution and on-site search signals), Bing Webmaster API (unlocks Bing and Copilot panel), PageSpeed Insights API key (unlocks Lighthouse scores on top pages weekly).
+Committed 9 files to branch `seo/daily`: `.seo/briefs/2026-11-21-roundup-outreach-t2.md`, `.seo/radar.md`, `.seo/aeo/mentions.md`, `.seo/aeo/worklog.md`, `.seo/content-ledger.md`, `.seo/needs-you.md`, `.seo/roadmap.md`, `.seo/runs/2026-11-21-0000.md`, `.seo/runs/latest.md`. No code changed. Run record at `.seo/runs/2026-11-21-0000.md`.
