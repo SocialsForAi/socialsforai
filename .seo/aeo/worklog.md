@@ -7,6 +7,7 @@
 | 2026-11-18 | OFF-003 | 2 | saashub.com | OFF-003 | drafted |
 | 2026-11-21 | OFF-004 | 2 | dev.to/jclvsh | OFF-004 | drafted |
 | 2026-11-21 | OFF-005 | 2 | shapelessai.com | OFF-005 | drafted |
+| 2026-11-22 | OFF-006 | 2 | indiehackers.com/products | OFF-006 | drafted |
 
 ---
 
