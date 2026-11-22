@@ -14,6 +14,7 @@
 | 2026-11-19 | Network status verify-product | verify-product | .seo/truth.md + truth-checks.json | — | — | — | none | n/a | — | uncommitted |
 | 2026-11-20 | Competitor config repair: 7 sitemap URLs + social-api.ai added | repair | .seo/config.json + .seo/competitors/* | — | — | — | none | n/a | — | uncommitted |
 | 2026-11-21 | Roundup outreach briefs (dev.to/jclvsh + shapelessai.com) | offpage-brief | .seo/briefs/2026-11-21-roundup-outreach-t2.md | — | — | — | radar 2026-11-20/21 | n/a | — | uncommitted |
+| 2026-11-22 | Indie Hackers product listing brief | offpage-brief | .seo/briefs/2026-11-22-indie-hackers-t2.md | — | — | — | none | n/a | — | uncommitted |
 
 <!-- Append one row per piece at Step 5. Type in guide / how-to / listicle / definition / comparison / data-study / resource / opinion / case-study / tool -->
 
@@ -30,15 +31,14 @@
 
 ## Candidate backlog
 
-_Scored shortlist from run 2026-11-21. Re-score each run from live GSC + health diff data._
+_Scored shortlist from run 2026-11-22. Re-score each run from live GSC + health diff data._
 
 | Rank | Action | Target | Evidence | Score | Effort | Blocked on |
 |---|---|---|---|---|---|---|
-| 1 | offpage-brief | Indie Hackers product page | DR ~72, founder community, free submission, 10 min; carried 4 runs | 20 | S | — |
-| 2 | verify-product | truth.md: add company address, contact email, MCP Registry ID | Homepage FAQ added 2026-11-20; terms effective 2026-11-19 | 17 | S | — |
-| 3 | offpage-brief | Roundup outreach — remaining targets: chatforest.com, kevinmeneses.com, postpeer.dev, dev.to/jesse_eisenbart, publora.com | Radar 2026-11-21: 5 more page-1 roundups not yet briefed; independence not confirmed | 16 | S | Verify independence before sending |
-| 4 | repair | sitemap lastmod (build-date-lastmod violation) | 46/46 URLs share 2026-11-01 | 15 | S | NY-3 (website repo needed) |
-| 5 | offpage-brief | G2 + Capterra listing | Ayrshare on G2; DR 92/91 | 15 | M | NY-5 (human sends) |
+| 1 | verify-product | truth.md: add company address, contact email, MCP Registry ID | Homepage FAQ added 2026-11-20; facts unlogged 3 days | 17 | S | — |
+| 2 | offpage-brief | Roundup outreach — remaining targets: chatforest.com, kevinmeneses.com, postpeer.dev, dev.to/jesse_eisenbart, publora.com | Radar 2026-11-21: 5 more page-1 roundups not yet briefed; independence not confirmed | 16 | S | Verify independence before sending |
+| 3 | repair | sitemap lastmod (build-date-lastmod violation) | 46/46 URLs share 2026-11-01; 4 days unchanged | 15 | S | NY-3 (website repo needed) |
+| 4 | offpage-brief | G2 + Capterra listing | Ayrshare on G2; DR 92/91 | 15 | M | NY-5 (human sends) |
 
 ---
 

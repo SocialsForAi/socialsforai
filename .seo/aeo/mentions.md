@@ -10,6 +10,7 @@ _Started 2026-11-18. No prior inventory. First pass is a skeleton; populate as s
 | shapelessai.com | https://shapelessai.com/best-social-media-mcp-servers | none | SocialsForAI absent — 27 MCP servers listed, sources from vendor docs, independent | n/a — absent | n/a | n/a — absent | unknown | Add new row — see OFF-005 | OFF-005 |
 | chatforest.com | https://chatforest.com/guides/best-social-media-mcp-servers/ | none | SocialsForAI absent — 35+ tools; independence not verified | n/a — absent | n/a | n/a — absent | unknown | Verify independence before sending — use OFF-004 wording | — |
 | kevinmeneses.com | https://kevinmeneses.com/en/articles/best-social-media-mcp-servers-2026 | none | SocialsForAI absent — independent tech blog, 7 tools; not fetched | n/a — absent | n/a | n/a — absent | unknown | Verify then add — use OFF-004 wording | — |
+| Indie Hackers products | https://www.indiehackers.com/products | none | not listed — absent | n/a — absent | n/a | n/a — absent | unknown | Add new listing — see OFF-006 | OFF-006 |
 
 ---
 

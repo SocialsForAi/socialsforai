@@ -39,7 +39,7 @@ _Initialized 2026-11-18. The programmatic-page tracker and off-page phase planne
 - [ ] G2 — submit product page — requires screenshot, verification email, ~20 min (NY-5)
 - [ ] Capterra / GetApp / Software Advice — one form, ~20 min (NY-5)
 - [ ] SaaSHub — free, 5 min (NY-5)
-- [ ] Indie Hackers products — free, 10 min (NY-5)
+- [ ] Indie Hackers products — brief drafted (OFF-006, 2026-11-22); submit via NY-11
 - [ ] Crunchbase basic profile — free, 10 min (NY-5)
 
 **Files modified:** none — external work. Track status in .seo/needs-you.md.

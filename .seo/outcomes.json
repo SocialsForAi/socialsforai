@@ -1,5 +1,5 @@
 {
-  "generated": "2026-11-21",
+  "generated": "2026-11-22",
   "ledger": ".seo/content-ledger.md",
   "gsc_dir": ".seo/gsc",
   "pulls": 0,
@@ -58,6 +58,18 @@
     {
       "date": "2026-11-20",
       "action": "repair",
+      "type": null,
+      "target": null,
+      "verdict": "n/a",
+      "before": null,
+      "after": null,
+      "control_change": null,
+      "excess": null,
+      "note": "no target URL"
+    },
+    {
+      "date": "2026-11-21",
+      "action": "offpage-brief",
       "type": null,
       "target": null,
       "verdict": "n/a",
