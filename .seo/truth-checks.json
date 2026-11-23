@@ -34,5 +34,17 @@
     "paths": ["skills/socialsforai/SKILL.md", "README.md"],
     "must_match": [],
     "must_not_match": ["[Tt]ik[Tt]ok.*live", "[Tt]ik[Tt]ok.*supported", "supported.*[Tt]ik[Tt]ok"]
+  },
+  {
+    "claim": "Contact email is lee@socialsforai.com",
+    "paths": ["python/pyproject.toml"],
+    "must_match": ["lee@socialsforai\\.com"],
+    "must_not_match": []
+  },
+  {
+    "claim": "MCP Registry ID is io.github.SocialsForAi/socialsforai",
+    "paths": ["server.json"],
+    "must_match": ["io\\.github\\.SocialsForAi/socialsforai"],
+    "must_not_match": []
   }
 ]

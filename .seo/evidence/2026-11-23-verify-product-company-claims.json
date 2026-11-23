@@ -1,0 +1,92 @@
+{
+  "run": "2026-11-23-0000",
+  "action": "verify-product",
+  "target": "truth.md — company address, contact email, MCP Registry ID, full plan pricing",
+  "source_check_date": "2026-11-23",
+
+  "claims_verified": [
+    {
+      "claim": "Company address",
+      "value": "Codehorts LLC, 1421 B St, Eureka, CA 95501, USA",
+      "source": "Homepage FAQ ('Who runs SocialsForAI?') — health diff 2026-11-23.json, page https://socialsforai.com/",
+      "risk": "trust"
+    },
+    {
+      "claim": "Contact email",
+      "value": "lee@socialsforai.com",
+      "source": "Homepage FAQ; python/pyproject.toml line 12",
+      "risk": "trust"
+    },
+    {
+      "claim": "MCP Registry ID",
+      "value": "io.github.SocialsForAi/socialsforai",
+      "source": "Homepage FAQ; server.json (repo root)",
+      "risk": "trust"
+    },
+    {
+      "claim": "Hobby plan",
+      "value": "$9/mo, 5 active accounts, +$2/extra account",
+      "source": "socialsforai.com/pricing — health diff 2026-11-23.json",
+      "risk": "revenue"
+    },
+    {
+      "claim": "Pro plan",
+      "value": "$29/mo, 25 active accounts, +$1/extra account",
+      "source": "socialsforai.com/pricing — health diff 2026-11-23.json",
+      "risk": "revenue"
+    },
+    {
+      "claim": "Growth plan",
+      "value": "$79/mo, 100 active accounts, +$0.75/extra account",
+      "source": "socialsforai.com/pricing — health diff 2026-11-23.json",
+      "risk": "revenue"
+    },
+    {
+      "claim": "Scale plan",
+      "value": "$199/mo, 400 active accounts, +$0.40/extra account",
+      "source": "socialsforai.com/pricing — health diff 2026-11-23.json",
+      "risk": "revenue"
+    },
+    {
+      "claim": "Paid billing",
+      "value": "Monthly by card through Stripe; active accounts meter; unlimited posts on paid plans",
+      "source": "socialsforai.com/pricing",
+      "risk": "revenue"
+    },
+    {
+      "claim": "Credentials encrypted at rest",
+      "value": "yes",
+      "source": "Homepage FAQ",
+      "risk": "trust/security"
+    },
+    {
+      "claim": "Data deletion URL",
+      "value": "/data-deletion",
+      "source": "Homepage FAQ",
+      "risk": "compliance"
+    }
+  ],
+
+  "mechanical_checks_added": [
+    {
+      "rule": "Contact email is lee@socialsforai.com",
+      "path": "python/pyproject.toml",
+      "must_match": "lee@socialsforai\\.com",
+      "result": "PASS — pyproject.toml line 12 matches"
+    },
+    {
+      "rule": "MCP Registry ID is io.github.SocialsForAi/socialsforai",
+      "path": "server.json",
+      "must_match": "io\\.github\\.SocialsForAi/socialsforai",
+      "result": "PASS — server.json name field matches"
+    }
+  ],
+
+  "pricing_checks_note": "Pricing claims ($9/$29/$79/$199) are verified from the live pricing page (health diff). They are NOT added to truth-checks.json grep rules because the pricing page lives in a separate website repo — no file path to grep in this repo. Re-verify manually whenever a plan change is announced.",
+
+  "truth_check_post_action": "8 rules, 0 contradictions, 0 missing — PASS",
+
+  "pages_corrected": "none — truth_check.py found no existing public content contradicting any new claim",
+
+  "gate_rendered_check": "No page correction was made; verify-product step only recorded new claims. Rendered check not applicable."
+}
