@@ -16,6 +16,7 @@
 | 2026-11-21 | Roundup outreach briefs (dev.to/jclvsh + shapelessai.com) | offpage-brief | .seo/briefs/2026-11-21-roundup-outreach-t2.md | — | — | — | radar 2026-11-20/21 | n/a | — | uncommitted |
 | 2026-11-22 | Indie Hackers product listing brief | offpage-brief | .seo/briefs/2026-11-22-indie-hackers-t2.md | — | — | — | none | n/a | — | uncommitted |
 | 2026-11-23 | verify-product: company address, contact email, MCP Registry ID, full plan pricing | verify-product | .seo/truth.md + .seo/truth-checks.json | — | — | — | re-verify on plan change | n/a | — | uncommitted |
+| 2026-11-24 | Roundup outreach briefs (dev.to/jesse_eisenbart + chatforest.com + kevinmeneses.com) | offpage-brief | .seo/briefs/2026-11-24-roundup-outreach-t2.md | — | — | — | radar 2026-11-24 | n/a | — | uncommitted |
 
 <!-- Append one row per piece at Step 5. Type in guide / how-to / listicle / definition / comparison / data-study / resource / opinion / case-study / tool -->
 
@@ -36,7 +37,7 @@ _Scored shortlist from run 2026-11-23. Re-score each run from live GSC + health 
 
 | Rank | Action | Target | Evidence | Score | Effort | Blocked on |
 |---|---|---|---|---|---|---|
-| 1 | offpage-brief | Roundup outreach — remaining targets: chatforest.com, kevinmeneses.com, postpeer.dev, dev.to/jesse_eisenbart, publora.com | Radar 2026-11-21: 5 more page-1 roundups not yet briefed; independence not confirmed | 16 | S | Verify independence before sending |
+| 1 | offpage-brief | Roundup outreach — new targets from radar; verify independence first | Today's radar: radar.md updated 2026-11-24 | — | S | — |
 | 2 | repair | sitemap lastmod (build-date-lastmod violation) | 46/46 URLs share 2026-11-01; 5 days unchanged | 15 | S | NY-3 (website repo needed) |
 | 3 | offpage-brief | G2 + Capterra listing | Ayrshare on G2; DR 92/91 | 15 | M | NY-5 (human sends) |
 

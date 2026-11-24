@@ -1,112 +1,59 @@
-# Daily SEO run — 2026-11-23 (run 1 of day, ~00:00 UTC)
+# SEO run — 2026-11-24
 
-**Site:** socialsforai.com — social media posting API and MCP server for AI agents  
-**Branch:** seo/daily  
-**Previous run:** 2026-11-22-0000 (offpage-brief: Indie Hackers product listing OFF-006)
+## What this run did
 
----
+Three outreach briefs were written for page-1 roundup articles where SocialsForAI is currently absent. Independence was verified for all three by fetching the pages today.
 
-## Measured
+- **Jesse Eisenbart on dev.to** — "The 7 Best Social Media APIs for Developers & AI Agents in 2026" (dev.to/jesse_eisenbart/the-7-best-social-media-apis-for-developers-ai-agents-in-2026-3e15). This article ranks page 1 for "social media API for AI agents" and compares seven tools without including SocialsForAI. Jesse is an independent solo-founder (not a competitor product). The brief asks him to add SocialsForAI as an eighth option, with the description ready to paste. Brief: OFF-007.
+- **ChatForest** — "Best Social Media MCP Servers 2026 — 35+ Tools" (chatforest.com/guides/best-social-media-mcp-servers/). Page 1 for "best social media MCP servers". ChatForest is an AI-native publication whose stated methodology is reading vendor documentation — the brief provides a pre-formatted data row in that format, with the MCP URL, networks, pricing, and agent features pre-verified from truth.md. Brief: OFF-008.
+- **Kevin Meneses** — "7 Best Social Media MCP Servers for Claude and ChatGPT (2026)" (kevinmeneses.com/en/articles/best-social-media-mcp-servers-2026). Page 1 independent tech blog. The brief requests a straight factual addition. Important note in the brief: Kevin has affiliate links for some competitors in the article — do not offer or accept an affiliate arrangement. Brief: OFF-009.
 
-```
-GSC 28d: not connected (0/0). Pages: n/a (no GSC data).
-Bing: no key.
-Health: 46 pages, 1 changed (/status — live data, expected), 2 violations (unchanged).
-  Violations: [build-date-lastmod] 46/46 URLs share 2026-11-01; [duplicate-meta-description] /privacy + /terms share homepage meta.
-Truth: 8 rules, 0 contradictions, 0 missing. Clean. (up from 6 rules; 2 new rules added this run.)
-Claims re-verified: 0 (no last_verified stamps in briefs yet).
-AI panel: due (cadence 14d, never run) — skipped for budget ($2.00 unattended cap).
-AI referrals: not measured (no GA4, no logs).
-Census: unchecked — no GSC.
-Vitals: speed median TTFB homepage ~82ms (no slow-ttfb flag). LCP/INP/CLS: unchecked (no PSI key). | relevance: unchecked | CTR: unchecked | links: within 7d cadence (due 2026-11-27). Backlinks: within 7d cadence (due 2026-11-28).
-Radar: within 20h cadence (last ran 2026-11-22).
-SERP: within 168h cadence (due 2026-11-27).
-Links+: within 168h cadence (due 2026-11-27).
-Brand: unchecked (no GSC queries file).
-Product: 0 commits touching watched paths since 2026-11-22T00:00.
-Competitors: within 168h window (due 2026-11-27).
-Backlinks±: within 7d cadence (due 2026-11-28).
-Seasonality: due monthly (cadence 720h).
-Outcomes: n/a (no GSC). Priors: none.
-Debt carried from 2026-11-22: offpage-brief roundup remaining targets, verify-product (top candidate), sitemap lastmod (blocked NY-3), AI panel (budget).
-Unchecked: GSC (not connected), Bing (no key), census (no GSC), brand split (no GSC), SERP features (weekly cadence), link opportunities (weekly cadence), backlinks (weekly cadence, budget), Lighthouse (no PSI key), AI panel (budget), claim re-verification (no last_verified stamps), AI referrals (no GA4/logs).
-```
+Five other page-1 roundup articles found in today's radar check were confirmed competitor-authored (Schedule & Chill, DemandBird, Mallary Labs, PostPeer, Publora) and were dropped — not eligible for outreach.
 
----
+This action won because SocialsForAI is absent from every significant page-1 roundup for the product's two target queries ("best social media MCP servers" and "social media API for AI agents"). These are the articles its buyers find before they know the product name. The three targets confirmed independent today were the last unverified items from the debt carried since 2026-11-19.
 
-## Candidates
+## Verified
 
-Fixed overrides checked first:
-- **Tier 1 (reachability/index regressions):** none detected.
-- **Tier 2 (truth contradictions):** none (0 from truth_check.py on today's health file, 8 rules).
-- **Tier 3 (repairs with user-facing harm):** none.
+- Truth check (repo + live pages): 8 rules, 0 contradictions — clean.
+- Health diff: 46 pages, 2 unchanged violations (sitemap lastmod, duplicate meta description), 1 expected change (/status page). No new regressions.
+- All brief wording cross-referenced against truth.md (last updated 2026-11-23): networks, pricing, MCP URL, MCP Registry ID, error.fix field, approval workflow, idempotency — all sourced from verified claims.
+- Independence verified by page fetch for all three targets. Five competitor-authored articles found and dropped.
+- No code files changed; no build or type check required.
+- Not checked: GSC (not connected), Lighthouse (no PSI key), AI panel (budget), backlinks (weekly cadence, due 2026-11-28), SERP features (weekly cadence, due 2026-11-27), AI referrals (no GA4 or server logs), census (no GSC).
 
-**Top candidates (rubric scored):**
+## Left for the next run
 
-| Rank | Action | Target | Evidence | Score | Effort | Blocked on |
-|---|---|---|---|---|---|---|
-| 1 | verify-product | truth.md: company address, contact email, MCP Registry ID, plan pricing | Homepage FAQ added 2026-11-20; pricing page read 2026-11-23; facts unlogged 3 days | 17 | S | — |
-| 2 | offpage-brief | Roundup outreach — remaining: chatforest.com, kevinmeneses.com, postpeer.dev, jesse_eisenbart, publora.com | 5 page-1 roundups, independence unverified | 16 | S | Independence check needed |
-| 3 | repair | Sitemap lastmod (build-date-lastmod) | 46/46 URLs share 2026-11-01; 5th consecutive run | 15 | S | NY-3 (website repo) |
-| 4 | offpage-brief | G2 + Capterra listing | Ayrshare on G2; DR 92/91; human sends | 15 | M | NY-5 |
+- **Sitemap lastmod fix and duplicate meta description** — still unresolved after 6 days. Both require editing the website repository (a separate codebase not present here). The sitemap has 46 URLs all sharing the lastmod date 2026-11-01 — this is a build date, not a content date, and slows recrawling.
+- **AI panel** — what ChatGPT, Perplexity, Claude, and Gemini say about SocialsForAI has never been measured. The 14-day cadence is overdue. Requires a dedicated run with more budget. Run `/seo aeo` to execute it.
+- **SERP features panel** is due 2026-11-27 (3 days). An unusual number of competitor-authored roundup articles appeared in today's radar (5 new ones). This may signal more AI Overviews appearing for target queries. The SERP panel will confirm.
+- **Nine unsent briefs** are waiting (OFF-001 through OFF-009). The three written today (OFF-007, OFF-008, OFF-009) are the highest priority; the two from 2026-11-21 (OFF-004 dev.to/jclvsh, OFF-005 shapelessai.com) are next.
 
-Saturation check: last 6 executed runs — offpage-brief (×2, 11-18), verify-product (11-19), repair (11-20), offpage-brief (11-21), offpage-brief (11-22). No verify-product cooldown (previous was different claims on 11-19). No saturation block.
+## Decisions waiting on you
 
-Portfolio gates: create_gate unchecked (no GSC). No cold veins (no priors).
+**Search Console is not connected** — without it, this skill cannot see which pages are close to ranking on Google, cannot detect pages that dropped out of the index, and cannot measure click-through rates. Options: (a) connect Search Console — go to the OpenSEO dashboard for project ba51c7a8-d290-4772-8bbb-70c6c2c505f5 and add the Search Console property for socialsforai.com; (b) continue without it. Recommend (a): the site has been active for a week with no GSC data, and striking-distance pages are invisible without it. Reply with a letter. (NY-1)
 
----
+**Brand positioning and product truth need owner confirmation** — two things remain unconfirmed: (a) Is the positioning sentence accurate: "social media posting API and MCP server for AI agent developers who need to publish programmatically"? (b) Are there any proprietary data assets — aggregate usage stats, error rate data, post volume trends — that could become public content? Original data is the most durable SEO asset available; knowing what exists changes the content roadmap significantly. Reply yes/no on (a) and anything you're willing to publish on (b). (NY-9)
 
-## Chose
+**Two technical violations on the live site require the website repository** — both have appeared in every health scan for 6 days: (1) All 46 sitemap URLs share the lastmod date 2026-11-01 (a build date, not a content date — this tells Google to recrawl less often). Fix: emit the actual page-modified date in the sitemap generator, or omit lastmod. (2) The /privacy and /terms pages both use the homepage meta description. Fix: give each its own distinct meta description. Both require the website repo. Options: (a) fix them in the site repo and reply "done"; (b) continue deferring. Recommend (a): these are two small changes that take under 30 minutes combined. (NY-3)
 
-**verify-product: truth.md update — company address, contact email, MCP Registry ID, full plan pricing.** Unattended run — taking top candidate (score 17). The homepage FAQ added "Who runs SocialsForAI?" content on 2026-11-20 with the company's address (1421 B St, Eureka, CA 95501, USA), contact email (lee@socialsforai.com), and MCP Registry ID (io.github.SocialsForAi/socialsforai). The pricing page was also read and all four paid plan prices were absent from truth.md. These are revenue-sensitive claims. Recording them now means every future create or refresh action can verify against the ledger, and truth_check.py can guard against contradictions in repo files.
+**Product Hunt brief is ready to submit** — the brief at .seo/briefs/2026-11-18-product-hunt-t2.md has the tagline, description, topics, and media links ready. Product Hunt requires a human to submit and to be available on launch day (Tuesday–Thursday recommended, roughly 2–3 hours available). Reply "sent" once submitted and the skill will log the send date and schedule a 30-day recheck. (NY-4)
 
----
+**Directory starter stack** — G2, Capterra/GetApp, SaaSHub, and Crunchbase remain unsubmitted. Each has a brief or is a 5–20 minute form submission. Combined, they add presence on platforms with domain ratings of 88–92 that answer engines cite for vendor discovery. Reply "done" listing which were submitted and the skill will log and schedule rechecks. (NY-5)
 
-## Did
+**AlternativeTo brief ready** — submit SocialsForAI at alternativeto.net/software/add/ using .seo/briefs/2026-11-18-alternativeto-t2.md, then mark it as an alternative to Postiz, Ayrshare, and Post Bridge from each competitor's AlternativeTo page. ~15 min total. Reply "sent OFF-002". (NY-6)
 
-**Files changed (4):**
+**SaaSHub brief ready** — submit at saashub.com/submit using .seo/briefs/2026-11-18-saashub-t2.md. ~5 min. Reply "sent OFF-003". (NY-7)
 
-1. `.seo/truth.md` — 22 new claim rows added in the claims table (address, email, MCP Registry ID, data deletion URL, credentials at rest, full Hobby/Pro/Growth/Scale pricing including overages and billing model, agent-cannot-connect-alone, agent-cannot-pay). 3 new HIGH-RISK entries added (plan pricing, contact email, MCP Registry ID). Header note updated with today's date.
-2. `.seo/truth-checks.json` — 2 new mechanical check rules added: (a) Contact email: `python/pyproject.toml` must match `lee@socialsforai\.com` → PASS; (b) MCP Registry ID: `server.json` must match `io\.github\.SocialsForAi/socialsforai` → PASS.
-3. `.seo/evidence/2026-11-23-verify-product-company-claims.json` — evidence file with all 10 verified claims, source for each, mechanical check results, and note on why pricing was not added to truth-checks.json grep rules (separate website repo).
-4. `.seo/content-ledger.md` — ledger row added (2026-11-23, verify-product, truth.md + truth-checks.json); candidate backlog updated (verify-product removed, roundup outreach now #1).
+**Instagram meta description** — the /instagram-api page body correctly says Instagram posting is not yet live, but the page's meta description reads as a general Instagram API guide with no caveat. Consider updating it. Requires website repo. No urgency. Reply "done" if applied. (NY-8)
 
-**Gates (fix lane / verify-product, all non-waivable):**
-- truth.md has each claim with a dated source: ✅ — 22 new rows, sources from homepage FAQ (health diff 2026-11-23.json) and pricing page (health diff 2026-11-23.json) and repo files (pyproject.toml, server.json)
-- truth-checks.json has mechanical rule for new high-risk claims in repo files: ✅ — 2 new rules (email + MCP Registry ID); pricing not added to grep rules (pricing not in this repo — noted as limitation)
-- truth_check.py post-action: 8 rules, 0 contradictions, 0 missing ✅
-- No pages contradicted any new claim (no "Correcting a claim" steps required): ✅ — confirmed by truth_check.py
-- Rendered check of corrected page: N/A — no page was corrected; this run only added claims to the ledger. No existing page contradicted any new claim.
-- No competitor named outside allowed pages: ✅
-- No invented regulatory/medical language: ✅
-- Build/type check: not applicable — only .seo/ Markdown and JSON files changed.
+**dev.to/jclvsh and shapelessai.com briefs** — ready to send since 2026-11-21. (a) OFF-004: Comment or DM the author of "Social media posting APIs for AI agents" on dev.to asking to add SocialsForAI as a seventh option — wording is in .seo/briefs/2026-11-21-roundup-outreach-t2.md, ~15 min. (b) OFF-005: Contact shapelessai.com asking them to add a SocialsForAI row to their 27-tool MCP server census — table row ready to paste, ~10 min. Reply "sent OFF-004", "sent OFF-005", or both. (NY-10)
 
----
+**Indie Hackers product listing** — brief at .seo/briefs/2026-11-22-indie-hackers-t2.md. Submit at indiehackers.com/products — requires an Indie Hackers account in your name. ~10 min. Reply "sent OFF-006". (NY-11)
 
-## Not done
-
-1. **offpage-brief: remaining roundup outreach** — chatforest.com, kevinmeneses.com, postpeer.dev, dev.to/jesse_eisenbart, publora.com — 5 page-1 roundup pages need independence verification before briefing. Score 16. **Top candidate next run.** Not done: lower score, independence check still needed.
-2. **Sitemap lastmod and duplicate meta description** — requires website repository (NY-3). Two technical violations unchanged for 5 days.
-3. **AI panel** — cadence 14 days, never run. Skipped for budget constraint (unattended $2.00 cap). Run `/seo aeo` to execute it as a dedicated run.
-4. **Pricing not in truth-checks.json grep rules** — Plan prices ($9/$29/$79/$199) are verified from the live pricing page and recorded in truth.md, but no grep rule was added because the pricing page lives in a separate website repo (not greppable from this repo). If pricing-related copy ever lands in SKILL.md or README.md, add a must-not-match rule then.
-
----
-
-## Needs you
-
-No new items this run.  
-Open (unchanged): NY-1, NY-2, NY-3, NY-4, NY-5, NY-6, NY-7, NY-8, NY-9, NY-10, NY-11.
-
----
-
-## Spend
-
-Paid calls: 0. Web searches (free): 0. URL fetches (free): 46 (health diff against socialsforai.com). Budget used: $0.00 / $2.00.
-
-Skipped for budget/cadence: AI panel ($-paid; unattended budget cap), backlinks panel ($-paid weekly call), SERP features panel ($-paid weekly call).
-
----
+**Three new roundup briefs ready today** — all in .seo/briefs/2026-11-24-roundup-outreach-t2.md. (NY-12) OFF-007: Comment or message Jesse Eisenbart on dev.to asking him to add SocialsForAI to "The 7 Best Social Media APIs for Developers & AI Agents in 2026" — wording ready to paste, ~15 min. Reply "sent OFF-007". (NY-13) OFF-008: Contact ChatForest via their site contact form asking them to add a SocialsForAI entry to their "35+ Best Social Media MCP Servers 2026" article — pre-formatted data row in the brief, ~10 min. Reply "sent OFF-008". (NY-14) OFF-009: Contact Kevin Meneses asking for a straight factual addition to his "7 Best Social Media MCP Servers" article. Do not offer or accept any affiliate arrangement — the brief includes this note. ~10 min. Reply "sent OFF-009". (NY-14)
 
 ## How the run ended
 
-Git mode: commit. Files changed this run: 4 (.seo/ state files only, no code changed). Run record: `.seo/runs/2026-11-23-0000.md`.
+Git mode: `commit`. 6 files changed under `.seo/` (brief file, worklog, mentions inventory, content ledger, needs-you queue, radar). No code or website files changed. Run record: `.seo/runs/2026-11-24-0000.md`.
+
+**Missing connections:** Search Console (would unlock per-page impressions, CTR, and striking-distance detection) and GA4 (would add AI referral attribution from ChatGPT, Perplexity, Claude) are the two most valuable additions. Both are connectable from the OpenSEO dashboard.

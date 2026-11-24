@@ -1,5 +1,5 @@
 {
-  "generated": "2026-11-22",
+  "generated": "2026-11-24",
   "ledger": ".seo/content-ledger.md",
   "gsc_dir": ".seo/gsc",
   "pulls": 0,
@@ -70,6 +70,30 @@
     {
       "date": "2026-11-21",
       "action": "offpage-brief",
+      "type": null,
+      "target": null,
+      "verdict": "n/a",
+      "before": null,
+      "after": null,
+      "control_change": null,
+      "excess": null,
+      "note": "no target URL"
+    },
+    {
+      "date": "2026-11-22",
+      "action": "offpage-brief",
+      "type": null,
+      "target": null,
+      "verdict": "n/a",
+      "before": null,
+      "after": null,
+      "control_change": null,
+      "excess": null,
+      "note": "no target URL"
+    },
+    {
+      "date": "2026-11-23",
+      "action": "verify-product",
       "type": null,
       "target": null,
       "verdict": "n/a",
