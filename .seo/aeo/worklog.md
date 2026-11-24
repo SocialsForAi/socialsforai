@@ -8,6 +8,9 @@
 | 2026-11-21 | OFF-004 | 2 | dev.to/jclvsh | OFF-004 | drafted |
 | 2026-11-21 | OFF-005 | 2 | shapelessai.com | OFF-005 | drafted |
 | 2026-11-22 | OFF-006 | 2 | indiehackers.com/products | OFF-006 | drafted |
+| 2026-11-24 | OFF-007 | 2 | dev.to/jesse_eisenbart | OFF-007 | drafted |
+| 2026-11-24 | OFF-008 | 2 | chatforest.com | OFF-008 | drafted |
+| 2026-11-24 | OFF-009 | 2 | kevinmeneses.com | OFF-009 | drafted |
 
 ---
 
