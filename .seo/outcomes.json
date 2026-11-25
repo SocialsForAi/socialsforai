@@ -1,7 +1,7 @@
 {
-  "generated": "2026-11-24",
-  "ledger": ".seo/content-ledger.md",
-  "gsc_dir": ".seo/gsc",
+  "generated": "2026-11-25",
+  "ledger": "/opt/worktrees/socialsforai-daily/.seo/content-ledger.md",
+  "gsc_dir": "/opt/worktrees/socialsforai-daily/.seo/gsc",
   "pulls": 0,
   "notes": [
     "no dated pulls loaded \u2014 every row is too-new"
@@ -94,6 +94,18 @@
     {
       "date": "2026-11-23",
       "action": "verify-product",
+      "type": null,
+      "target": null,
+      "verdict": "n/a",
+      "before": null,
+      "after": null,
+      "control_change": null,
+      "excess": null,
+      "note": "no target URL"
+    },
+    {
+      "date": "2026-11-24",
+      "action": "offpage-brief",
       "type": null,
       "target": null,
       "verdict": "n/a",

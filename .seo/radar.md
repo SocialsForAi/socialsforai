@@ -30,7 +30,16 @@ Outside-in demand signals, cumulative. The measure step appends here; select rea
 
 ## Seeds
 
+| 2026-11-25 | serp-gap | web search | https://enjoy.dev/blog/best-social-media-api/ | "The best social media APIs for AI agents in 2026: 8 compared" — SocialsForAI absent; competitor-authored (Mo, founder of Enjoy app) | medium (page 1) | social media API for AI agents | dropped |
+| 2026-11-25 | serp-gap | web search | https://www.openpmm.com/blog/best-social-media-apis-for-ai-agents | "Best Social Media APIs for AI Agents in 2026" — SocialsForAI absent; competitor-authored (OpenPMM is a social media API company) | medium (page 1) | social media API for AI agents | dropped |
+| 2026-11-25 | serp-gap | web search | https://postqued.com/blog/best-social-media-api-ai-agents | "Best Social Media APIs for AI Agents in 2026" — SocialsForAI absent; competitor-authored (Hasnain Syed, founder of Postqued) | medium (page 1) | social media API for AI agents | dropped |
+| 2026-11-25 | serp-gap | web search | https://eden.so/blog/best-social-media-mcp-servers/ | "The best social media MCP servers in 2026" — SocialsForAI absent; competitor-authored (Eden team, Eden app) | medium (page 1) | MCP server for social media posting | dropped |
+| 2026-11-25 | serp-gap | web search | https://postplanify.com/blog/best-mcp-servers-social-media-management | "13 Best MCP Servers for Social Media Management in 2026" — SocialsForAI absent; competitor-authored (Hasan Cagli, founder of PostPlanify) | medium (page 1) | MCP server for social media posting | dropped |
+| 2026-11-25 | serp-gap | web search | https://publora.com/blog/best-social-media-api-for-ai-agents-2026 | "Best Social Media API for AI Agents 2026" — SocialsForAI absent; competitor-authored (Serge Bulaev, founder of Publora) | medium (page 1) | social media API for AI agents | dropped |
+
+## Seeds
+
 | seed | communities | signals 30d | last hit | status |
 |---|---|---|---|---|
-| social media API for AI agents | reddit (blocked), HN, web | 7 | 2026-11-21 | active |
-| MCP server for social media posting | web | 13 | 2026-11-21 | active |
+| social media API for AI agents | reddit (blocked), HN, web | 7 | 2026-11-25 | active |
+| MCP server for social media posting | web | 13 | 2026-11-25 | active |

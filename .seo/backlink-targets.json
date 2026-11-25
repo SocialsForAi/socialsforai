@@ -27,7 +27,7 @@
       "competitor_uses": ["ayrshare.com", "postiz.com"],
       "priority": 2,
       "note": "DR 92. Requires screenshot, URL, verification email. Slower process but high authority.",
-      "brief": "needs-you.md NY-5"
+      "brief": ".seo/briefs/2026-11-25-directory-listings-t2.md (OFF-010); needs-you.md NY-15"
     },
     {
       "domain": "capterra.com",
@@ -36,7 +36,7 @@
       "competitor_uses": ["ayrshare.com"],
       "priority": 2,
       "note": "Part of Gartner Digital Markets (same form flow as GetApp and Software Advice). One submission covers three directories.",
-      "brief": "needs-you.md NY-5"
+      "brief": ".seo/briefs/2026-11-25-directory-listings-t2.md (OFF-011); needs-you.md NY-16"
     },
     {
       "domain": "saashub.com",
@@ -63,7 +63,7 @@
       "competitor_uses": [],
       "priority": 3,
       "note": "Free basic profile passes DR and company signal to Google.",
-      "brief": "needs-you.md NY-5"
+      "brief": ".seo/briefs/2026-11-25-directory-listings-t2.md (OFF-012); needs-you.md NY-17"
     }
   ],
   "listicles": [

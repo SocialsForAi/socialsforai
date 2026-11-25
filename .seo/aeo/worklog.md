@@ -11,6 +11,9 @@
 | 2026-11-24 | OFF-007 | 2 | dev.to/jesse_eisenbart | OFF-007 | drafted |
 | 2026-11-24 | OFF-008 | 2 | chatforest.com | OFF-008 | drafted |
 | 2026-11-24 | OFF-009 | 2 | kevinmeneses.com | OFF-009 | drafted |
+| 2026-11-25 | OFF-010 | 2 | g2.com | OFF-010 | drafted |
+| 2026-11-25 | OFF-011 | 2 | capterra.com / getapp.com / softwareadvice.com | OFF-011 | drafted |
+| 2026-11-25 | OFF-012 | 2 | crunchbase.com | OFF-012 | drafted |
 
 ---
 
