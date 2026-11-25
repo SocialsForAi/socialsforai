@@ -14,6 +14,9 @@ _Started 2026-11-18. No prior inventory. First pass is a skeleton; populate as s
 | dev.to/jesse_eisenbart | https://dev.to/jesse_eisenbart/the-7-best-social-media-apis-for-developers-ai-agents-in-2026-3e15 | none | "7 Best Social Media APIs" — SocialsForAI absent; compares PostZen, Upload-Post, Zernio, Postiz, Outstand, PostPeer, Ayrshare; author: Jesse Eisenbart (independent, DeadUnicorn) | n/a — absent | n/a | n/a — absent | unknown | Add new entry — see OFF-007 | OFF-007 |
 | chatforest.com | https://chatforest.com/guides/best-social-media-mcp-servers/ | none | "Best Social Media MCP Servers 2026 — 35+ Tools" — SocialsForAI absent; AI-native publication | n/a — absent | n/a | n/a — absent | unknown | Add new entry — see OFF-008 | OFF-008 |
 | kevinmeneses.com | https://kevinmeneses.com/en/articles/best-social-media-mcp-servers-2026 | none | "7 Best Social Media MCP Servers" — SocialsForAI absent; author has affiliate links for Blotato/Zernio/Upload-Post | n/a — absent | n/a | n/a — absent | unknown | Add straight factual entry — see OFF-009 (no affiliate arrangement) | OFF-009 |
+| G2 | https://www.g2.com | none | not listed — absent | n/a — absent | n/a | n/a — absent | unknown | Submit new product listing — see OFF-010 | OFF-010 |
+| Capterra / GetApp / Software Advice | https://www.capterra.com | none | not listed — absent (one form covers all three Gartner Digital Markets directories) | n/a — absent | n/a | n/a — absent | unknown | Submit new vendor listing — see OFF-011 | OFF-011 |
+| Crunchbase | https://www.crunchbase.com | none | not listed — absent (searched "SocialsForAI" and "Codehorts LLC" 2026-11-25) | n/a — absent | n/a | n/a — absent | unknown | Create free organization profile — see OFF-012 | OFF-012 |
 
 ---
 
@@ -23,6 +26,7 @@ _Started 2026-11-18. No prior inventory. First pass is a skeleton; populate as s
 - SERP check 2026-11-18: socialsforai.com appeared in zero of three checked SERPs (social media api for ai agents / mcp server social media posting / post to social media from ai agent). No third-party mentions of SocialsForAI detected in any SERP snippet.
 - SERP check 2026-11-21: 10+ page-1 roundup pages for "best social media MCP servers" — SocialsForAI absent from all. 4+ page-1 roundups for "social media API for AI agents" — SocialsForAI absent from all. Confirmed competitor-authored: blotato.com, upload-post.com, breakreach.com, eden.so. Wrong category: scrapecreators.com (data scraping). Independent confirmed: dev.to/jclvsh, shapelessai.com.
 - SERP check 2026-11-24: Verified independence of remaining debt targets. Independent confirmed: dev.to/jesse_eisenbart, chatforest.com, kevinmeneses.com (affiliate links noted). Competitor-authored (dropped): postpeer.dev (PostPeer), publora.com (Publora), mallary.ai (Mallary Labs), demandbird.com (DemandBird), schedulenchill.com (Schedule & Chill). New page-1 results: mallary.ai, demandbird.com, schedulenchill.com — all competitor-authored.
+- SERP check 2026-11-25: Remaining proposed radar signals fully exhausted — all 6 verified as competitor-authored today: enjoy.dev (Enjoy app), openpmm.com (OpenPMM API), publora.com (Publora), eden.so (Eden app), postqued.com (Postqued API), postplanify.com (PostPlanify). Additionally: sociality.io, pallyy.com, socialync.io, opentweet.io — all assessed competitor-authored by domain. SERP for the two target queries is now saturated with competitor-authored roundups. Focus shifted to high-DR directory listings (G2, Capterra, Crunchbase).
 
 ---
 

@@ -17,6 +17,7 @@
 | 2026-11-22 | Indie Hackers product listing brief | offpage-brief | .seo/briefs/2026-11-22-indie-hackers-t2.md | — | — | — | none | n/a | — | uncommitted |
 | 2026-11-23 | verify-product: company address, contact email, MCP Registry ID, full plan pricing | verify-product | .seo/truth.md + .seo/truth-checks.json | — | — | — | re-verify on plan change | n/a | — | uncommitted |
 | 2026-11-24 | Roundup outreach briefs (dev.to/jesse_eisenbart + chatforest.com + kevinmeneses.com) | offpage-brief | .seo/briefs/2026-11-24-roundup-outreach-t2.md | — | — | — | radar 2026-11-24 | n/a | — | uncommitted |
+| 2026-11-25 | Directory listing briefs (G2 DR 92, Capterra/GetApp/Software Advice DR 91, Crunchbase DR 91) | offpage-brief | .seo/briefs/2026-11-25-directory-listings-t2.md | — | — | — | backlink-targets.json 2026-11-18 | n/a | — | uncommitted |
 
 <!-- Append one row per piece at Step 5. Type in guide / how-to / listicle / definition / comparison / data-study / resource / opinion / case-study / tool -->
 
@@ -33,13 +34,13 @@
 
 ## Candidate backlog
 
-_Scored shortlist from run 2026-11-23. Re-score each run from live GSC + health diff data._
+_Scored shortlist from run 2026-11-25. Re-score each run from live GSC + health diff data._
 
 | Rank | Action | Target | Evidence | Score | Effort | Blocked on |
 |---|---|---|---|---|---|---|
-| 1 | offpage-brief | Roundup outreach — new targets from radar; verify independence first | Today's radar: radar.md updated 2026-11-24 | — | S | — |
-| 2 | repair | sitemap lastmod (build-date-lastmod violation) | 46/46 URLs share 2026-11-01; 5 days unchanged | 15 | S | NY-3 (website repo needed) |
-| 3 | offpage-brief | G2 + Capterra listing | Ayrshare on G2; DR 92/91 | 15 | M | NY-5 (human sends) |
+| 1 | repair | sitemap lastmod + duplicate meta description | 7 days unchanged, 2 violations | 15 | S | NY-3 (website repo) |
+| 2 | offpage-brief | aidelly.ai — "Best Agentic Social Media Tools in 2026" (Feb 2026, rank #7 on target query) | backlink-targets.json priority 2 | — | S | verify independence first |
+| 3 | aeo-fix | llms.txt: 4 links missing descriptions, 1 URL not in sitemap | robots_check.py 2026-11-25 | 8 | S | NY-3 (website repo) |
 
 ---
 
