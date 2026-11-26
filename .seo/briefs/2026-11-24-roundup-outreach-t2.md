@@ -176,7 +176,7 @@ AEO panel not yet run — citation counts not available. SERP rank page 1 (confi
 **SocialsForAI** — https://socialsforai.com  
 MCP server: https://socialsforai.com/api/mcp  
 Networks: X, LinkedIn, Bluesky, Mastodon, Telegram, Discord, Slack, Nostr (8 live)  
-Free tier: 3 accounts, 100 posts/month | Paid: from $9/mo
+Free tier: 3 accounts, 100 posts/month | Pro: $10/mo for 10 active accounts, then $1 per extra
 
 Built specifically for Claude and ChatGPT agents: idempotency keys (safe retries), structured
 `error.fix` field (agent handles errors without human debugging), human approval workflow
