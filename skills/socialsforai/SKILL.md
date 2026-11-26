@@ -133,7 +133,7 @@ socials keys create --name "drafting agent" --scopes posts:write --account-ids a
 
 - `socials usage` shows active accounts this month, posts, the plan and estimated cost. Billing counts accounts that posted in the month, not accounts that are merely connected.
 - Requests are rate limited per workspace per minute (60 on Free, more on paid plans). Responses carry `RateLimit-Limit`, `RateLimit-Remaining` and `RateLimit-Reset`. On `429 rate_limited`, wait the `Retry-After` seconds, then retry with the same idempotency key.
-- When a Free-plan limit blocks a post (`plan_limit_...` in a dry run), you cannot pay, but you can hand the user a link: `socials upgrade pro` (`create_upgrade_link`, `POST /v1/upgrade-links {"plan":"pro"}`) returns a `url` where they pay by card. Plans: `hobby`, `pro`, `growth`, `scale`. Say what the plan costs (see https://socialsforai.com/pricing.md) and let them decide.
+- When a Free-plan limit blocks a post (`plan_limit_...` in a dry run), you cannot pay, but you can hand the user a link: `socials upgrade pro` (`create_upgrade_link`, `POST /v1/upgrade-links {"plan":"pro"}`) returns a `url` where they pay by card. Pro ($10/mo for 10 active accounts, then $1 each) is the only paid plan. Say what it costs (see https://socialsforai.com/pricing.md) and let them decide.
 
 ## Errors
 

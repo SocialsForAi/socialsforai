@@ -73,7 +73,7 @@ Codehorts LLC / Lee Shadle (inferred from pyproject.toml and git config). Develo
 
 Yes. 3 active accounts, 100 posts/month. No credit card required for signup.
 
-Plans above free: hobby, pro, growth, scale. Pricing at https://socialsforai.com/pricing. Agents can generate an upgrade link via API (`POST /v1/upgrade-links`).
+One paid plan: Pro, $10/mo for 10 active accounts, then $1 per extra active account (unlimited posts). Free covers 3 active accounts and 100 posts a month. Pricing at https://socialsforai.com/pricing. Agents can generate an upgrade link via API (`POST /v1/upgrade-links`).
 
 ---
 

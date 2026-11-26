@@ -32,7 +32,7 @@ The key is read from, in order: `--api-key`, `SOCIALSFORAI_API_KEY`, `SOCIALS_AP
 | `whoami` | The workspace this key belongs to |
 | `platforms` | Networks and their limits (no key needed) |
 | `usage` | Active accounts, posts, plan and estimated cost this month |
-| `upgrade <hobby\|pro\|growth\|scale>` | A checkout link for a person to pay |
+| `upgrade [pro]` | A checkout link for a person to pay. Pro is the only paid plan: $10/mo for 10 active accounts, then $1 each |
 | `accounts [--platform] [--ref] [--status]` | Connected accounts |
 | `connect [--platforms a,b] [--ref] [--redirect-url] [--expires-in] [--wait] [--until all\|any]` | A link the account owner opens. `--wait` prints the link on stderr and holds until they finish |
 | `connect-account --platform P --credentials '{...}' [--ref]` | Connect Bluesky, Mastodon, Telegram, Discord, Slack or Nostr with credentials |

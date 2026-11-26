@@ -60,8 +60,8 @@ Agent-specific design:
 - **Sub-agent keys.** A coordinating agent mints child keys with per-account limits and
   daily post caps — isolation without custom middleware.
 
-Pricing: free tier (3 active accounts, 100 posts/month, no credit card); Hobby $9/mo
-(5 accounts); Pro $29/mo (25 accounts). Billing is per active account per month, not per
+Pricing: free tier (3 active accounts, 100 posts/month, no credit card); Pro $10/mo
+(10 accounts, then $1 per extra account). Billing is per active account per month, not per
 post. MCP server included at https://socialsforai.com/api/mcp (Streamable HTTP).
 
 ---
@@ -114,8 +114,7 @@ MCP Registry ID: io.github.SocialsForAi/socialsforai
 Networks (live): X, LinkedIn, Bluesky, Mastodon, Telegram, Discord, Slack, Nostr — 8 live;
 Instagram, Threads, Facebook, TikTok, YouTube in review  
 Free tier: 3 accounts, 100 posts/month, no credit card  
-Paid plans: Hobby $9/mo (5 accounts), Pro $29/mo (25 accounts), Growth $79/mo (100 accounts),
-Scale $199/mo (400 accounts)
+Paid plan: Pro $10/mo (10 accounts, then $1 per extra account; unlimited posts)
 
 Agent-first capabilities:
 - Idempotency keys — same key on retry never publishes twice

@@ -2,7 +2,8 @@
 
 _Sources read: README.md, AGENTS.md, skills/socialsforai/SKILL.md, sdk/package.json, python/pyproject.toml. Date: 2026-11-18._
 _Updated: homepage socialsforai.com (health diff 2026-11-19) — network status table added; "8 of 16 networks live" claim confirmed._
-_Updated 2026-11-23: homepage FAQ verified — company address, contact email, MCP Registry ID, credentials-at-rest, data deletion URL added. Pricing page read — full plan pricing (Hobby $9, Pro $29, Growth $79, Scale $199) and billing model added._
+_Updated 2026-11-23: homepage FAQ verified — company address, contact email, MCP Registry ID, credentials-at-rest, data deletion URL added. Pricing page read — plan pricing and billing model added._
+_Updated 2026-11-25: pricing changed on 2026-11-24 (v5). Free (3 active accounts) and Pro ($10/mo for 10 active accounts, then $1 each) are the only plans; Hobby, Growth, Scale and the $29 Pro are retired._
 _Re-derive whenever pricing, plans, integrations, or network support changes._
 
 ---
@@ -14,7 +15,7 @@ _Re-derive whenever pricing, plans, integrations, or network support changes._
 | Free plan — active accounts | 3 | skills/socialsforai/SKILL.md §7 | 2026-11-18 |
 | Free plan — posts per month | 100 | skills/socialsforai/SKILL.md §7 | 2026-11-18 |
 | Free plan — rate limit | 60 req/min | skills/socialsforai/SKILL.md §7 | 2026-11-18 |
-| Paid plan names | hobby, pro, growth, scale | skills/socialsforai/SKILL.md §7 | 2026-11-18 |
+| Paid plan names | pro (the only paid plan) | skills/socialsforai/SKILL.md §7; socialsforai.com/pricing | 2026-11-25 |
 | Pricing page | https://socialsforai.com/pricing.md | skills/socialsforai/SKILL.md §7 | 2026-11-18 |
 | API key shown once | yes — shown once at signup | skills/socialsforai/SKILL.md §1 | 2026-11-18 |
 | Agent can self-register | yes — POST /v1/workspaces, no auth | skills/socialsforai/SKILL.md §1 | 2026-11-18 |
@@ -55,26 +56,20 @@ _Re-derive whenever pricing, plans, integrations, or network support changes._
 | MCP Registry ID | io.github.SocialsForAi/socialsforai | homepage FAQ; server.json | 2026-11-23 |
 | Data deletion URL | /data-deletion | homepage FAQ ("you can disconnect any account or delete all your data at /data-deletion") | 2026-11-23 |
 | Credentials encrypted at rest | yes | homepage FAQ ("Credentials are encrypted at rest") | 2026-11-23 |
-| Hobby plan price | $9/mo | socialsforai.com/pricing (read 2026-11-23) | 2026-11-23 |
-| Hobby plan account limit | 5 active accounts | socialsforai.com/pricing | 2026-11-23 |
-| Hobby plan overage | +$2 per extra active account | socialsforai.com/pricing | 2026-11-23 |
-| Pro plan price | $29/mo | socialsforai.com/pricing | 2026-11-23 |
-| Pro plan account limit | 25 active accounts | socialsforai.com/pricing | 2026-11-23 |
-| Pro plan overage | +$1 per extra active account | socialsforai.com/pricing | 2026-11-23 |
-| Growth plan price | $79/mo | socialsforai.com/pricing | 2026-11-23 |
-| Growth plan account limit | 100 active accounts | socialsforai.com/pricing | 2026-11-23 |
-| Growth plan overage | +$0.75 per extra active account | socialsforai.com/pricing | 2026-11-23 |
-| Scale plan price | $199/mo | socialsforai.com/pricing | 2026-11-23 |
-| Scale plan account limit | 400 active accounts | socialsforai.com/pricing | 2026-11-23 |
-| Scale plan overage | +$0.40 per extra active account | socialsforai.com/pricing | 2026-11-23 |
+| Free plan | $0 — 3 active accounts, 100 posts/month, no card | socialsforai.com/pricing (read 2026-11-25) | 2026-11-25 |
+| Pro plan price | $10/mo | socialsforai.com/pricing (read 2026-11-25) | 2026-11-25 |
+| Pro plan account limit | 10 active accounts included | socialsforai.com/pricing | 2026-11-25 |
+| Pro plan overage | +$1 per extra active account (no cap, no other tiers) | socialsforai.com/pricing | 2026-11-25 |
+| Other paid plans | none — Hobby, Growth, Scale and the $29 Pro were retired on 2026-11-24 | socialsforai.com/pricing; socialsforai.com/llms.txt | 2026-11-25 |
+| Worked prices | 10 accounts $10 · 25 $25 · 50 $50 · 100 $100 | GET socialsforai.com/v1/pricing?accounts=N | 2026-11-25 |
 | Paid plans billing | monthly by card through Stripe, from dashboard Billing page | socialsforai.com/pricing | 2026-11-23 |
 | Paid plans meter | active accounts (accounts that published this month); unlimited posts | socialsforai.com/pricing | 2026-11-23 |
 | Agent cannot connect accounts alone | no — a person approves access on each network via connect link | homepage FAQ | 2026-11-23 |
 | Agent cannot pay for plan | no — agent requests upgrade link, human pays via Stripe Checkout | homepage FAQ | 2026-11-23 |
-| SDK: JavaScript | @socialsforai/sdk v0.2.0 | sdk/package.json | 2026-11-18 |
+| SDK: JavaScript | @socialsforai/sdk v0.2.1 | sdk/package.json | 2026-11-25 |
 | SDK: Python | socialsforai v0.1.0 | python/pyproject.toml | 2026-11-18 |
 | SDK: Vercel AI | @socialsforai/ai-sdk v0.1.0 | ai-sdk/package.json | 2026-11-18 |
-| CLI | @socialsforai/cli v0.2.0 | cli/package.json | 2026-11-18 |
+| CLI | @socialsforai/cli v0.2.1 | cli/package.json | 2026-11-25 |
 | LangChain integration | yes | python/pyproject.toml optional-dep | 2026-11-18 |
 | CrewAI integration | yes | python/pyproject.toml optional-dep | 2026-11-18 |
 | OpenAI Agents SDK integration | yes | python/pyproject.toml optional-dep | 2026-11-18 |
@@ -92,7 +87,7 @@ Claims where being wrong is a revenue or trust problem:
 | Idempotency guarantee | Correctness | An agent that retries under the belief this holds and gets a duplicate post is a severe bug. Keep this in truth-checks.json. |
 | Instagram / YouTube / TikTok support | Reputation | These are "in review" per the homepage as of 2026-11-19. Do NOT claim they are live. The /instagram-api page on the site may need a disclaimer that the network is in review. |
 | "8 of 16 networks live" count | Reputation | Do not state a different network count in content without re-checking /v1/platforms or the homepage. |
-| Paid plan prices (Hobby $9, Pro $29, Growth $79, Scale $199) | Revenue | Pricing read from socialsforai.com/pricing on 2026-11-23. Re-verify whenever a plan change is announced. Do not state different prices in content without re-reading the pricing page. |
+| Paid plan price (Pro $10/mo for 10 active accounts, then $1 each) | Revenue | Pricing read from socialsforai.com/pricing on 2026-11-25 (changed 2026-11-24). Never quote Hobby, Growth, Scale or Pro $29 — they are retired. Re-verify whenever a plan change is announced. Do not state different prices in content without re-reading the pricing page. |
 | Contact email (lee@socialsforai.com) | Trust | Used in product FAQ and pyproject.toml. Must match across all public content. |
 | MCP Registry ID (io.github.SocialsForAi/socialsforai) | Trust | From server.json and homepage FAQ. Must be quoted exactly when directing users to the MCP Registry. |
 

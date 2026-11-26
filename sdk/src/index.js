@@ -8,7 +8,7 @@
  */
 
 export const DEFAULT_BASE_URL = "https://socialsforai.com";
-export const VERSION = "0.2.0";
+export const VERSION = "0.2.1";
 
 /** An error the API returned. `code` is stable; `fix` says what to do; `issues` lists failed checks. */
 export class SocialsError extends Error {
@@ -80,7 +80,7 @@ export class SocialsForAI {
     this.analytics = { get: (params) => r("GET", `/v1/analytics${query(params)}`) };
     this.platforms = { list: async () => (await r("GET", "/v1/platforms", { auth: false })).data };
     this.health = { get: () => r("GET", "/v1/health", { auth: false, okStatuses: [503] }) };
-    this.upgradeLinks = { create: (body) => r("POST", "/v1/upgrade-links", { body }) };
+    this.upgradeLinks = { create: (body = {}) => r("POST", "/v1/upgrade-links", { body }) };
 
     this.accounts = {
       list: async (params) => (await r("GET", `/v1/accounts${query(params)}`)).data,

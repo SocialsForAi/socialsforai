@@ -80,10 +80,7 @@ Integration" subcategory by the time of submission, select that instead.
 
 **Pricing info (enter in G2 pricing section):**
 - Free: $0/month — 3 active accounts, 100 posts/month
-- Hobby: $9/month — 5 active accounts, +$2 per extra active account
-- Pro: $29/month — 25 active accounts, +$1 per extra active account
-- Growth: $79/month — 100 active accounts, +$0.75 per extra active account
-- Scale: $199/month — 400 active accounts, +$0.40 per extra active account
+- Pro: $10/month — 10 active accounts, +$1 per extra active account
 - Pricing model: active accounts (accounts that published this month); posts are unlimited
   on paid plans
 - Free trial: yes (free plan, no credit card required)
@@ -169,10 +166,7 @@ platforms do not see SocialsForAI as an option. One submission covers all three 
 
 **Pricing (enter in the form):**
 - Free: $0/month — 3 active accounts, 100 posts/month
-- Hobby: $9/month — 5 active accounts
-- Pro: $29/month — 25 active accounts
-- Growth: $79/month — 100 active accounts
-- Scale: $199/month — 400 active accounts
+- Pro: $10/month — 10 active accounts, then $1 per extra active account
 - Pricing model: monthly subscription, billed by active accounts
 - Free trial: yes (permanent free tier, no time limit, no credit card)
 
