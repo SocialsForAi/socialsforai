@@ -8,7 +8,7 @@
  */
 
 export const DEFAULT_BASE_URL = "https://socialsforai.com";
-export const VERSION = "0.2.1";
+export const VERSION = "0.2.2";
 
 /** An error the API returned. `code` is stable; `fix` says what to do; `issues` lists failed checks. */
 export class SocialsError extends Error {
@@ -25,6 +25,16 @@ export class SocialsError extends Error {
 }
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
+
+/**
+ * Web Crypto's SubtleCrypto. Browsers, Deno, Bun, workers and Node 20+ have it on globalThis;
+ * Node 18 only exposes it as node:crypto's webcrypto (loaded lazily, so browser bundles never see it).
+ */
+async function subtle() {
+  if (globalThis.crypto?.subtle) return globalThis.crypto.subtle;
+  const { webcrypto } = await import("node:crypto");
+  return webcrypto.subtle;
+}
 
 function randomKey() {
   const c = globalThis.crypto;
@@ -252,9 +262,10 @@ export async function verifyWebhook(secret, header, rawBody, { toleranceSeconds 
   if (!parts.v1 || !Number.isFinite(t)) return false;
   if (Math.abs(now / 1000 - t) > toleranceSeconds) return false;
   const enc = new TextEncoder();
-  const key = await globalThis.crypto.subtle.importKey("raw", enc.encode(secret), { name: "HMAC", hash: "SHA-256" }, false, ["sign"]);
+  const sc = await subtle();
+  const key = await sc.importKey("raw", enc.encode(secret), { name: "HMAC", hash: "SHA-256" }, false, ["sign"]);
   const body = typeof rawBody === "string" ? rawBody : new TextDecoder().decode(rawBody);
-  const mac = new Uint8Array(await globalThis.crypto.subtle.sign("HMAC", key, enc.encode(`${t}.${body}`)));
+  const mac = new Uint8Array(await sc.sign("HMAC", key, enc.encode(`${t}.${body}`)));
   const expected = Array.from(mac, (b) => b.toString(16).padStart(2, "0")).join("");
   if (expected.length !== parts.v1.length) return false;
   let diff = 0;
