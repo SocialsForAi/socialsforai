@@ -5,7 +5,10 @@ export declare const VERSION: string;
 
 export type Platform = "x" | "bluesky" | "linkedin" | "linkedin_page" | "mastodon" | "telegram" | "threads" | "facebook" | "instagram" | "youtube" | "tiktok" | "discord" | "slack" | "nostr" | "reddit" | "sandbox";
 export type Scope = "posts:read" | "posts:write" | "accounts:read" | "accounts:write" | "admin";
-export type Plan = "hobby" | "pro" | "growth" | "scale";
+/** The paid plan on sale: $10/mo for 10 active accounts, then $1 per extra active account. */
+export type Plan = "pro";
+/** Plans no longer sold; workspaces that subscribed before 2026-11-24 may still report one. */
+export type LegacyPlan = "hobby" | "pro_v4" | "growth" | "scale";
 export type PostStatus = "pending_approval" | "scheduled" | "publishing" | "published" | "partially_published" | "failed" | "canceled" | "deleted";
 export type EventType =
   | "post.published"
@@ -278,7 +281,7 @@ export interface Workspace {
   object: "workspace";
   id: string;
   name: string;
-  plan: "free" | Plan;
+  plan: "free" | Plan | LegacyPlan;
   owner_email: string | null;
   created_at?: string;
 }
@@ -292,7 +295,7 @@ export interface WorkspaceCreated extends Workspace {
 export interface Usage {
   object: "usage";
   period: { start: string; end: string };
-  plan: { id: string; name: string; monthly_price: number; included_active_accounts: number; overage_per_account: number | null; monthly_post_limit: number | null };
+  plan: { id: string; name: string; monthly_price: number; included_active_accounts: number; overage_per_account: number | null; monthly_post_limit: number | null; legacy?: boolean };
   active_accounts: number;
   posts: number;
   estimated_cost: number | null;
@@ -309,6 +312,7 @@ export interface UpgradeLink {
   url: string;
   monthly_price: number;
   included_active_accounts: number;
+  per_extra_active_account?: number | null;
   note: string;
 }
 
@@ -400,7 +404,7 @@ export declare class SocialsForAI {
   analytics: { get(params?: { days?: number; from?: string; to?: string; account_id?: string; platform?: Platform; timezone?: string; limit?: number }): Promise<Analytics> };
   platforms: { list(): Promise<PlatformInfo[]> };
   health: { get(): Promise<Health> };
-  upgradeLinks: { create(body: { plan: Plan }): Promise<UpgradeLink> };
+  upgradeLinks: { create(body?: { plan?: Plan }): Promise<UpgradeLink> };
 
   accounts: {
     list(params?: { platform?: Platform; external_ref?: string; status?: "active" | "needs_reauth" }): Promise<Account[]>;

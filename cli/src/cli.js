@@ -6,7 +6,8 @@ import { integer, jsonFlag, list, parseArgs, UsageError } from "./args.js";
 const DEFAULT_BASE_URL = "https://socialsforai.com";
 const MCP_PATH = "/api/mcp";
 const SMALL_UPLOAD_MAX = 4 * 1024 * 1024;
-const PLANS = ["hobby", "pro", "growth", "scale"];
+/** Pro is the only paid plan since 2026-11-24 ($10/mo for 10 active accounts, then $1 each). */
+const PLANS = ["pro"];
 
 const CONTENT_TYPES = {
   ".jpg": "image/jpeg",
@@ -33,7 +34,7 @@ Setup
   platforms                               Networks and their limits (no key needed)
   usage                                   Active accounts, posts, plan and estimated cost this month
   status                                  Service status: API, publisher and each network (no key needed)
-  upgrade <hobby|pro|growth|scale>        Get a checkout link for a human to pay
+  upgrade [pro]                           Get a checkout link for a human to pay (Pro: $10/mo, 10 accounts, +$1 each)
 
 Accounts
   accounts [--platform P] [--ref R] [--status S]
@@ -218,8 +219,8 @@ const commands = {
   usage: (ctx) => ctx.request("GET", "/v1/usage"),
   status: (ctx) => ctx.request("GET", "/v1/health", { auth: false }),
 
-  async upgrade(ctx, [plan]) {
-    if (!PLANS.includes(plan)) throw new UsageError(`Name a plan: socials upgrade <${PLANS.join("|")}>`);
+  async upgrade(ctx, [plan = "pro"]) {
+    if (!PLANS.includes(plan)) throw new UsageError(`Pro is the only paid plan: socials upgrade pro`);
     return ctx.request("POST", "/v1/upgrade-links", { body: { plan } });
   },
 

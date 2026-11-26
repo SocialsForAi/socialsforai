@@ -1,6 +1,6 @@
 {
   "name": "@socialsforai/cli",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Command-line client for the SocialsForAI API: post to social networks from a shell or an AI agent. JSON in, JSON out.",
   "type": "module",
   "bin": {
