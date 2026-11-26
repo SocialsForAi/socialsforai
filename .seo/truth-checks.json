@@ -36,6 +36,12 @@
     "must_not_match": ["[Tt]ik[Tt]ok.*live", "[Tt]ik[Tt]ok.*supported", "supported.*[Tt]ik[Tt]ok"]
   },
   {
+    "claim": "Retired plans (Hobby $9, Pro $29, Growth $79, Scale $199) never quoted in briefs",
+    "paths": ["README.md", "skills/socialsforai/SKILL.md", ".seo/briefs/*.md"],
+    "must_match": [],
+    "must_not_match": ["from \\$9/mo", "Hobby \\$9", "Pro \\$29", "Growth \\$79", "Scale \\$199"]
+  },
+  {
     "claim": "Contact email is lee@socialsforai.com",
     "paths": ["python/pyproject.toml"],
     "must_match": ["lee@socialsforai\\.com"],

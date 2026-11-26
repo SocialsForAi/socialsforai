@@ -4,6 +4,7 @@ _Sources read: README.md, AGENTS.md, skills/socialsforai/SKILL.md, sdk/package.j
 _Updated: homepage socialsforai.com (health diff 2026-11-19) — network status table added; "8 of 16 networks live" claim confirmed._
 _Updated 2026-11-23: homepage FAQ verified — company address, contact email, MCP Registry ID, credentials-at-rest, data deletion URL added. Pricing page read — plan pricing and billing model added._
 _Updated 2026-11-25: pricing changed on 2026-11-24 (v5). Free (3 active accounts) and Pro ($10/mo for 10 active accounts, then $1 each) are the only plans; Hobby, Growth, Scale and the $29 Pro are retired._
+_Confirmed 2026-11-26 against live pricing.md and the owner note; no change needed. Outreach brief 2026-11-24 corrected._
 _Re-derive whenever pricing, plans, integrations, or network support changes._
 
 ---
