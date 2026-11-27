@@ -62,3 +62,4 @@ _Scored shortlist from run 2026-11-25. Re-score each run from live GSC + health 
 | Character limits reference | https://socialsforai.com/bluesky-character-limit | pre-existing | Reference page |
 | Free tools | https://socialsforai.com/tools/* | pre-existing | 4 tools |
 | Agent integrations | https://socialsforai.com/agents/* | pre-existing | 6 agent pages |
+| Fix brief: /vs/ayrshare stale Pro price | https://socialsforai.com/vs/ayrshare | 2026-11-27 | correct (brief only; website repo needed) |

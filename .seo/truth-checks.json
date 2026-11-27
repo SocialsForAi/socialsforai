@@ -1,56 +1,123 @@
 [
   {
     "claim": "Free plan: 3 active accounts",
-    "paths": ["skills/socialsforai/SKILL.md", "README.md"],
-    "must_match": ["3"],
+    "paths": [
+      "skills/socialsforai/SKILL.md",
+      "README.md"
+    ],
+    "must_match": [
+      "3"
+    ],
     "must_not_match": []
   },
   {
     "claim": "Free plan: 100 posts per month",
-    "paths": ["skills/socialsforai/SKILL.md", "README.md"],
-    "must_match": ["100"],
+    "paths": [
+      "skills/socialsforai/SKILL.md",
+      "README.md"
+    ],
+    "must_match": [
+      "100"
+    ],
     "must_not_match": []
   },
   {
     "claim": "Idempotency: same key never posts twice",
-    "paths": ["skills/socialsforai/SKILL.md", "README.md"],
-    "must_match": ["[Ii]dempoten"],
+    "paths": [
+      "skills/socialsforai/SKILL.md",
+      "README.md"
+    ],
+    "must_match": [
+      "[Ii]dempoten"
+    ],
     "must_not_match": []
   },
   {
     "claim": "Instagram is NOT live (in review only)",
-    "paths": ["skills/socialsforai/SKILL.md", "README.md"],
+    "paths": [
+      "skills/socialsforai/SKILL.md",
+      "README.md"
+    ],
     "must_match": [],
-    "must_not_match": ["[Ii]nstagram.*live", "[Ii]nstagram.*supported", "supported.*[Ii]nstagram"]
+    "must_not_match": [
+      "[Ii]nstagram.*live",
+      "[Ii]nstagram.*supported",
+      "supported.*[Ii]nstagram"
+    ]
   },
   {
     "claim": "YouTube is NOT live (in review only)",
-    "paths": ["skills/socialsforai/SKILL.md", "README.md"],
+    "paths": [
+      "skills/socialsforai/SKILL.md",
+      "README.md"
+    ],
     "must_match": [],
-    "must_not_match": ["[Yy]ouTube.*live", "[Yy]ou[Tt]ube.*supported", "supported.*[Yy]ou[Tt]ube"]
+    "must_not_match": [
+      "[Yy]ouTube.*live",
+      "[Yy]ou[Tt]ube.*supported",
+      "supported.*[Yy]ou[Tt]ube"
+    ]
   },
   {
     "claim": "TikTok is NOT live (in review only)",
-    "paths": ["skills/socialsforai/SKILL.md", "README.md"],
+    "paths": [
+      "skills/socialsforai/SKILL.md",
+      "README.md"
+    ],
     "must_match": [],
-    "must_not_match": ["[Tt]ik[Tt]ok.*live", "[Tt]ik[Tt]ok.*supported", "supported.*[Tt]ik[Tt]ok"]
+    "must_not_match": [
+      "[Tt]ik[Tt]ok.*live",
+      "[Tt]ik[Tt]ok.*supported",
+      "supported.*[Tt]ik[Tt]ok"
+    ]
   },
   {
     "claim": "Retired plans (Hobby $9, Pro $29, Growth $79, Scale $199) never quoted in briefs",
-    "paths": ["README.md", "skills/socialsforai/SKILL.md", ".seo/briefs/*.md"],
+    "paths": [
+      "README.md",
+      "skills/socialsforai/SKILL.md",
+      ".seo/briefs/*.md"
+    ],
     "must_match": [],
-    "must_not_match": ["from \\$9/mo", "Hobby \\$9", "Pro \\$29", "Growth \\$79", "Scale \\$199"]
+    "must_not_match": [
+      "from \\$9/mo",
+      "Hobby \\$9",
+      "Pro \\$29",
+      "Growth \\$79",
+      "Scale \\$199"
+    ]
   },
   {
     "claim": "Contact email is lee@socialsforai.com",
-    "paths": ["python/pyproject.toml"],
-    "must_match": ["lee@socialsforai\\.com"],
+    "paths": [
+      "python/pyproject.toml"
+    ],
+    "must_match": [
+      "lee@socialsforai\\.com"
+    ],
     "must_not_match": []
   },
   {
     "claim": "MCP Registry ID is io.github.SocialsForAi/socialsforai",
-    "paths": ["server.json"],
-    "must_match": ["io\\.github\\.SocialsForAi/socialsforai"],
+    "paths": [
+      "server.json"
+    ],
+    "must_match": [
+      "io\\.github\\.SocialsForAi/socialsforai"
+    ],
     "must_not_match": []
+  },
+  {
+    "claim": "Stale Pro price never appears in rendered site text (Pro is $10 for 10 accounts, then $1 each; 25 accounts = $25)",
+    "paths": [
+      "README.md",
+      "skills/socialsforai/SKILL.md",
+      ".seo/briefs/*.md"
+    ],
+    "must_match": [],
+    "must_not_match": [
+      "Pro is \\$29",
+      "\\$29 for 25"
+    ]
   }
 ]
