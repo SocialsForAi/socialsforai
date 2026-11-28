@@ -63,3 +63,4 @@ _Scored shortlist from run 2026-11-25. Re-score each run from live GSC + health 
 | Free tools | https://socialsforai.com/tools/* | pre-existing | 4 tools |
 | Agent integrations | https://socialsforai.com/agents/* | pre-existing | 6 agent pages |
 | Fix brief: /vs/ayrshare stale Pro price | https://socialsforai.com/vs/ayrshare | 2026-11-27 | correct (brief only; website repo needed) |
+| Draft: social media MCP servers compared | https://socialsforai.com/mcp/compare (proposed) | 2026-11-28 | create-editorial (brief only; website repo needed; competitor cells unverified) |
